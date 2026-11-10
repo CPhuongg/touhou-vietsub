@@ -1,4 +1,5 @@
 {
+  "id": "egoistic-flowers-70b0",
   "titleJP": "EGOiSTiC FLOWERS",
   "titleRM": "",
   "titleVI": "ĐÓA HOA íCH Kỉ",
@@ -25,22 +26,20 @@
   "source": [
     "東方憑依華"
   ],
+  "cover": "media/egoistic-flowers-70b0-cover.webp",
+  "accent": "#fbd667",
   "youtube": "https://youtu.be/Q5XwLY7oy8U?si=MWK8Dn1N8PF2fWbK",
+  "audio": "media-private/egoistic-flowers-70b0-audio.flac",
+  "audioName": "(03) [花たん] Egoistic Flowers.flac",
   "lyrics": {
     "jp": "言葉にできない溢れる想いを\nどんなときも気高く 掲げていたい\n\nああ 近づくことさえ\n許してはくれないのですか\n天(そら)を恋うように薄紅の月\nゆっくりと弧を描いてく\n\n生まれたときにはもう カーストに縛られ\n奇跡だと説かれても 幸福(しあわせ)とは繋がらない\n\n名前も知らない道端の花を\n今宵もまた抱き寄せ眠る いつか\n愛が壊れても 変わることのない願い\n跡形もなく散りゆく その日まで\n跡形もなく散りゆく 最期まで\n\nもう 綺麗事でさえ\n望んではいけないのですか\n水面煌く数多 星屑(ほし)の光\nひとつだって掬(すく)えはしない\n\n定められた生命(いのち)に 冷たい雨が そう\n象徴のないエトスが 今も苦しめているのに\n\n誰かの祈りが夜を染め上げて\n今宵もまた寄り添い歌う きっと\n愛に焦がれても 終わることのない痛み\n性懲りもなく 未来(あした)の夢を視る\n性懲りもなく 希望の夢を視る\n\n言葉にできない溢れる想いを\n今宵もまた抱き寄せ眠る いつか\n愛が壊れても 変わることのない願い\n跡形もなく散りゆく その日まで\nI believe...\n\n愛に焦がれても 終わることのない痛み\n私は現在(きょう)も 未来あしたの夢を視る\n二人は現在(きょう)も 希望の夢を視る",
     "rm": "",
-    "en": "",
     "vi": "Những tâm tư trào dâng chẳng thể gọi thành lời\nTa vẫn muốn kiêu hãnh nâng niu, gìn giữ chúng trong tim\n\nAhhh…\nNgay cả việc được đến gần\nCũng không được phép hay sao?\nVầng trăng phơn phớt hồng, tựa đang thương nhớ bầu trời\nChầm chậm vẽ nên một đường cong giữa đêm\n\nNgay từ khi sinh ra, ta đã bị trói buộc bởi giai cấp\nDẫu người đời có rao giảng đó là một phép màu\nNó vẫn chẳng thể nào mang đến hạnh phúc\n\nĐêm nay, ta lại ôm vào lòng\nĐóa hoa ven đường chẳng biết tên\nDẫu một ngày tình yêu có tan vỡ\nĐiều ước này vẫn sẽ chẳng đổi thay\nCho đến ngày nó tan tác, chẳng còn dấu vết\nCho đến tận phút cuối, khi mọi thứ tan biến không còn hình hài\n\nAhhh…\nNgay cả những điều đẹp đẽ\nCũng không được phép ước mong hay sao?\nBiết bao ánh sao lấp lánh trên mặt nước\nDẫu chỉ một ánh thôi, ta cũng chẳng thể nào vớt lấy\n\nTrên sinh mệnh đã được định sẵn ấy, cơn mưa lạnh buốt\nVẫn cứ rơi xuống, không ngừng\nMột thứ ethos chẳng mang hình hài biểu tượng\nĐến tận bây giờ vẫn khiến ta đau đớn\n\nLời nguyện cầu của ai đó nhuộm thẫm cả màn đêm\nĐêm nay, ta lại kề bên nhau và cất tiếng hát\nDẫu có khát khao tình yêu đến cháy bỏng\nNỗi đau này vẫn chẳng bao giờ kết thúc\nTa vẫn chẳng biết mỏi mệt, cứ mơ về ngày mai\nVẫn chẳng chịu từ bỏ, cứ mơ về một ngày mai đầy hy vọng\n\nNhững tâm tư trào dâng chẳng thể gọi thành lời\nĐêm nay, ta lại ôm chúng vào lòng rồi chìm vào giấc ngủ\nDẫu một ngày tình yêu có tan vỡ\nĐiều ước này vẫn sẽ chẳng đổi thay\nCho đến ngày nó tan tác, chẳng còn dấu vết\n\nTa vẫn tin tưởng…\n\nDẫu có khát khao tình yêu đến cháy bỏng\nNỗi đau này vẫn chẳng bao giờ kết thúc\nHôm nay, ta vẫn ngước nhìn giấc mơ về ngày mai\nVà hôm nay, hai ta vẫn cùng nhìn về một giấc mơ mang tên hy vọng"
   },
   "other": "",
   "comment": "",
-  "id": "egoistic-flowers-70b0",
-  "cover": "",
-  "accent": "",
-  "audio": "",
-  "audioName": "",
   "createdAt": "2026-10-02T13:49:00.000Z",
-  "updatedAt": "2026-10-02T13:49:00.000Z",
+  "updatedAt": "2026-11-10T12:22:05.446Z",
   "trashedAt": null,
   "version": 1,
   "notionId": "3ed6f0ef02908093b374c5dedd5770b0"

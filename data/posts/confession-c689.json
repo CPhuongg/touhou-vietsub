@@ -1,4 +1,5 @@
 {
+  "id": "confession-c689",
   "titleJP": "Confession",
   "titleRM": "",
   "titleVI": "Thú nhận",
@@ -13,22 +14,20 @@
   "vocals": [],
   "originalTitle": [],
   "source": [],
+  "cover": "media/confession-c689-cover.webp",
+  "accent": "#8777b6",
   "youtube": "https://youtu.be/q-txHTdRM8A?si=OqzGbHFcsFjon8bA",
+  "audio": "",
+  "audioName": "",
   "lyrics": {
     "jp": "会いたくて　All through the night\nその指も背中も　消えるMirage\n触れられない幻\n\n眠れずに　Dreaming your eyes\n目を閉じて描いて　何も伝えない曖昧な優しさ\n\nYou know I'm crazy 'bout you\n叶うなら　あなたに壊されたい\nAnd I know I can't reach for you\n求めても　もどかしさだけが増えてゆく\n\n暗闇で呟く恋心　My confession\nどんな夢より心に甘く滲みる\n美しい嘘でも　その笑顔　Fascination\n深く堕ちてく　受け止めて　In the bad dream\n\n夢の中　Kiss me again\n覚めないで　今だけ\n一夜限りの哀しみが狂わせる\n\nもう一度　Give me a pain\n傷つけて　その手で\n朝の光が面影を消すなら",
     "rm": "",
-    "en": "",
     "vi": "Muốn được gặp em - suốt cả đêm dài\nCả những ngón tay, cả tấm lưng ấy - đều tan vào ảo ảnh\nMột ảo ảnh chẳng thể chạm tới\n\nKhông sao ngủ được - cứ mơ về đôi mắt em\nKhép mắt lại mà vẽ nên hình bóng ấy\nMột sự dịu dàng mơ hồ, chẳng thể truyền đạt thành lời\n\nEm biết không, anh đã điên cuồng vì em\nNếu có thể thành hiện thực, anh muốn được em hủy hoại\nVà anh biết, anh chẳng thể với tới em\nDẫu có khao khát đến đâu, chỉ càng thêm bất lực\n\nTrong bóng tối, anh thì thầm nỗi lòng yêu em - lời thú nhận của anh\nNgọt ngào đến mức thấm sâu vào tim hơn bất cứ giấc mơ nào\nDẫu đó có là một lời dối trá tuyệt đẹp - nụ cười ấy vẫn khiến anh mê đắm\nCứ thế chìm sâu xuống - hãy đón nhận anh, trong cơn ác mộng này\n\nTrong giấc mơ - hôn anh lần nữa\nĐừng để anh tỉnh giấc, chỉ ngay lúc này thôi\nNỗi buồn chỉ kéo dài một đêm ấy khiến anh phát điên\n\nMột lần nữa - hãy trao anh nỗi đau\nHãy dùng đôi tay ấy làm anh tổn thương\nNếu ánh sáng ban mai sẽ xóa nhòa bóng hình em"
   },
   "other": "[https://youtu.be/CZK1Kig8GkU?si=XFxP2vWi2XC2lYqE](https://youtu.be/CZK1Kig8GkU?si=XFxP2vWi2XC2lYqE)\n\n[https://youtu.be/lpAuxsHHfmY?si=CAwYGnWhqaa9KX2S](https://youtu.be/lpAuxsHHfmY?si=CAwYGnWhqaa9KX2S)\n\n[https://youtu.be/FNsyRRgDYgk?si=q0amF_Vziil3ZtsF](https://youtu.be/FNsyRRgDYgk?si=q0amF_Vziil3ZtsF)",
   "comment": "",
-  "id": "confession-c689",
-  "cover": "",
-  "accent": "",
-  "audio": "",
-  "audioName": "",
   "createdAt": "2026-09-27T15:04:00.000Z",
-  "updatedAt": "2026-09-27T15:04:00.000Z",
+  "updatedAt": "2026-11-10T12:23:00.336Z",
   "trashedAt": null,
   "version": 1,
   "notionId": "3e86f0ef029080e49530d1dd6c66c689"
