@@ -7,3 +7,7 @@ Thumbs.db
 desktop.ini
 .DS_Store
 *.log
+
+# File export thô từ Notion (đã nhập vào data/)
+*ExportBlock*/
+*.zip

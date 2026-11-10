@@ -2,7 +2,7 @@
 import { Store } from './store.js';
 import { HttpSource, FolderSource, DemoSource, kvGet, kvSet, fsSupported } from './source.js';
 import { demoSeed } from './demo.js';
-import { esc, el, download, lsGet, lsSet } from './util.js';
+import { esc, el, download, lsGet, lsSet, extractPalette } from './util.js';
 import { modal, confirmBox, toast } from './ui.js';
 import { homeView } from './views/home.js';
 import { postView } from './views/post.js';
@@ -247,7 +247,35 @@ document.getElementById('btn-io').addEventListener('click', async () => {
       <button type="button" class="btn primary" data-a="export">⬇ Xuất JSON</button></section>
     <section><h3>Nhập</h3><p class="muted small">Gộp bài từ file JSON đã xuất trước đó.</p>
       <input type="file" accept="application/json,.json" class="import-file"></section>
+    <section><h3>Màu chủ đạo</h3><p class="muted small">Tự lấy màu từ ảnh bìa cho các bài có ảnh nhưng chưa chọn màu (${
+      store.list().filter((p) => p.cover && !p.accent).length
+    } bài).</p>
+      <button type="button" class="btn" data-a="accents">🎨 Lấy màu từ ảnh bìa</button></section>
   </div>`);
+  body.querySelector('[data-a="accents"]').addEventListener('click', async (e) => {
+    const btn = e.currentTarget;
+    const todo = store.list().filter((p) => p.cover && !p.accent);
+    if (!todo.length) return toast('Không còn bài nào cần lấy màu.', 'ok');
+    btn.disabled = true;
+    let done = 0;
+    for (const p of todo) {
+      try {
+        const url = await store.source.mediaURL(p.cover, p.updatedAt);
+        const [hex] = await extractPalette(url);
+        if (hex) {
+          await store.save({ ...p, accent: hex });
+          done++;
+        }
+      } catch (err) {
+        console.warn('Không lấy được màu', p.id, err);
+      }
+      btn.textContent = `🎨 Đang xử lý ${done}/${todo.length}…`;
+    }
+    btn.textContent = '🎨 Lấy màu từ ảnh bìa';
+    btn.disabled = false;
+    toast(`Đã lấy màu cho ${done} bài.`, 'ok');
+    render();
+  });
   body.querySelector('[data-a="export"]').addEventListener('click', () => {
     const d = new Date().toISOString().slice(0, 10).replace(/-/g, '');
     download(`vsub-export-${d}.json`, JSON.stringify(store.exportData(), null, 2));

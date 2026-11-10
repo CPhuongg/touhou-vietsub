@@ -45,6 +45,31 @@ Kho lưu trữ các bản vietsub nhạc Touhou. Đây là trang tĩnh, chạy t
 
    Thanh thông báo vàng trên trang có nút **Lệnh đăng bài** để copy nhanh các lệnh này. Push xong thì bấm **Đã push** để ẩn nhắc nhở.
 
+## Nhập lại bài từ WordPress
+
+```bash
+node scripts/import-wordpress.mjs --dry
+node scripts/import-wordpress.mjs
+```
+
+- `--dry` chỉ in ra kết quả, không ghi gì. Lệnh không có `--dry` mới ghi bài vào `data/posts` và tải ảnh bìa.
+- Chạy lại nhiều lần vẫn an toàn: mỗi bài WordPress luôn ra cùng một id, nên bài đã nhập sẽ được ghi đè chứ không tạo thêm bản trùng. Màu chủ đạo đã chọn được giữ nguyên.
+- Bài dành cho người đăng ký trả phí sẽ bị bỏ qua, vì API không trả về nội dung của chúng.
+
+## Nhập lại bài từ Notion
+
+1. Trong Notion, mở database và bấm **⋯ → Export → Markdown & CSV**, bật **Include subpages**.
+2. Giải nén file zip vào thư mục repo (thư mục có tên dạng `…_ExportBlock-…`, đã nằm trong `.gitignore`).
+3. Chạy:
+
+```bash
+node scripts/import-notion.mjs --dry
+node scripts/import-notion.mjs
+```
+
+- Bài trùng tên với bài đã có (ví dụ từ WordPress) không bị tạo thêm. Script chỉ bổ sung vào bài đó những trường còn thiếu: Release, Source, lời, Comment…
+- Tên người/circle viết bằng romaji được đổi sang cách viết tiếng Nhật đang dùng (Maika → 舞花, Mika → 美歌, Takanashi Koubou → 高梨工房). Danh sách này nằm trong `ALIAS` ở đầu script.
+
 ## 3. Chạy thử trong máy (không bắt buộc)
 
 ```bash

@@ -4,6 +4,7 @@ import { esc } from './util.js';
 export const LANGS = [
   { key: 'jp', label: 'JP', name: 'Tiếng Nhật' },
   { key: 'rm', label: 'RM', name: 'Romaji' },
+  { key: 'en', label: 'EN', name: 'Tiếng Anh' },
   { key: 'vi', label: 'VI', name: 'Tiếng Việt' },
 ];
 
@@ -24,7 +25,10 @@ export function splitStanzas(text) {
 }
 
 /** Ghép các ngôn ngữ theo đoạn. Trả về { langs, stanzas:[{jp,rm,vi,mismatch}], mismatches } */
-export function align(lyrics, keys = ['jp', 'rm', 'vi']) {
+export const ALL_KEYS = ['jp', 'rm', 'en', 'vi'];
+const langAttr = (k) => (k === 'vi' ? 'vi' : k === 'en' ? 'en' : k === 'jp' ? 'ja' : 'ja-Latn');
+
+export function align(lyrics, keys = ALL_KEYS) {
   const split = {};
   const langs = [];
   for (const k of keys) {
@@ -54,24 +58,24 @@ export function hasLyrics(lyrics) {
 
 const langName = (k) => LANGS.find((l) => l.key === k)?.label || k;
 
-/** Xen kẽ theo đoạn: JP → RM → VI */
-export function renderInterleave(lyrics, showRm) {
-  const { langs, stanzas } = align(lyrics, showRm ? ['jp', 'rm', 'vi'] : ['jp', 'vi']);
+/** Xen kẽ theo đoạn: JP → RM → EN → VI. keys = các ngôn ngữ đang hiện. */
+export function renderInterleave(lyrics, keys = ALL_KEYS) {
+  const { langs, stanzas } = align(lyrics, keys);
   if (!langs.length) return '';
   return stanzas
     .map(
       (s) =>
         `<div class="stanza">${langs
           .filter((k) => s[k].length)
-          .map((k) => `<div class="ly-block ly-${k}" lang="${k === 'vi' ? 'vi' : k === 'jp' ? 'ja' : 'ja-Latn'}">${s[k].map(esc).join('<br>')}</div>`)
+          .map((k) => `<div class="ly-block ly-${k}" lang="${langAttr(k)}">${s[k].map(esc).join('<br>')}</div>`)
           .join('')}</div>`,
     )
     .join('');
 }
 
 /** Song song: mỗi dòng 1 hàng, mỗi ngôn ngữ 1 cột (màn hình hẹp tự xếp chồng theo dòng). */
-export function renderParallel(lyrics, showRm) {
-  const { langs, stanzas } = align(lyrics, showRm ? ['jp', 'rm', 'vi'] : ['jp', 'vi']);
+export function renderParallel(lyrics, keys = ALL_KEYS) {
+  const { langs, stanzas } = align(lyrics, keys);
   if (!langs.length) return '';
   const head = `<div class="prow phead" style="--cols:${langs.length}">${langs.map((k) => `<div class="pcell">${langName(k)}</div>`).join('')}</div>`;
   const body = stanzas
@@ -80,7 +84,7 @@ export function renderParallel(lyrics, showRm) {
       let html = '';
       for (let i = 0; i < rows; i++) {
         html += `<div class="prow" style="--cols:${langs.length}">${langs
-          .map((k) => `<div class="pcell ly-${k}">${esc(s[k][i] || '')}</div>`)
+          .map((k) => `<div class="pcell ly-${k}" lang="${langAttr(k)}">${esc(s[k][i] || '')}</div>`)
           .join('')}</div>`;
       }
       return `<div class="pstanza">${html}</div>`;
@@ -93,5 +97,5 @@ export function renderParallel(lyrics, showRm) {
 export function renderSingle(lyrics, key) {
   const st = splitStanzas(lyrics?.[key]);
   if (!st.length) return '<p class="muted">Chưa có lời cho ngôn ngữ này.</p>';
-  return `<div class="single ly-${key}">${st.map((s) => `<p>${s.map(esc).join('<br>')}</p>`).join('')}</div>`;
+  return `<div class="single ly-${key}" lang="${langAttr(key)}">${st.map((s) => `<p>${s.map(esc).join('<br>')}</p>`).join('')}</div>`;
 }

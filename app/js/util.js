@@ -227,14 +227,14 @@ export const accentStyle = (p) => accentVars(postAccent(p));
  */
 export async function extractPalette(src, max = 6) {
   let bmp;
-  if (src instanceof Blob) bmp = await createImageBitmap(src);
-  else {
+  if (!(src instanceof Blob)) src = await (await fetch(src)).blob();
+  if (src.type === 'image/svg+xml') {
+    // SVG: createImageBitmap không đọc được trực tiếp → vẽ qua <img>
     const img = new Image();
-    img.crossOrigin = 'anonymous';
-    img.src = src;
+    img.src = URL.createObjectURL(src);
     await img.decode();
     bmp = img;
-  }
+  } else bmp = await createImageBitmap(src);
   const W = 64;
   const H = Math.max(1, Math.round((W * (bmp.height || W)) / (bmp.width || W)));
   const c = document.createElement('canvas');

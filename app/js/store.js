@@ -20,7 +20,7 @@ export const EMPTY_POST = () => ({
   youtube: '',
   audio: '',
   audioName: '',
-  lyrics: { jp: '', rm: '', vi: '' },
+  lyrics: { jp: '', rm: '', en: '', vi: '' },
   other: '',
   comment: '',
   createdAt: '',
@@ -36,7 +36,8 @@ export function normalizePost(raw) {
     const v = p[f.key];
     p[f.key] = Array.isArray(v) ? v.map(String).filter(Boolean) : v ? [String(v)] : [];
   }
-  p.lyrics = Object.assign({ jp: '', rm: '', vi: '' }, p.lyrics || {});
+  p.lyrics = Object.assign({ jp: '', rm: '', en: '', vi: '' }, p.lyrics || {});
+  for (const k of Object.keys(p.lyrics)) p.lyrics[k] = p.lyrics[k] == null ? '' : String(p.lyrics[k]);
   for (const k of ['titleJP', 'titleRM', 'titleVI', 'release', 'cover', 'youtube', 'audio', 'audioName', 'other', 'comment']) {
     p[k] = p[k] == null ? '' : String(p[k]);
   }
@@ -139,7 +140,7 @@ export class Store {
 
   searchText(p) {
     if (!p._search) {
-      const parts = [p.titleJP, p.titleRM, p.titleVI, p.release, p.other, p.comment, p.lyrics.jp, p.lyrics.rm, p.lyrics.vi];
+      const parts = [p.titleJP, p.titleRM, p.titleVI, p.release, p.other, p.comment, p.lyrics.jp, p.lyrics.rm, p.lyrics.en, p.lyrics.vi];
       for (const f of TAG_FIELDS) parts.push(...(p[f.key] || []));
       Object.defineProperty(p, '_search', { value: norm(parts.join('\n')), enumerable: false, writable: true, configurable: true });
     }

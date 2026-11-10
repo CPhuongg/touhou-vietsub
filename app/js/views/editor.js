@@ -103,7 +103,7 @@ export function editorView(ctx, id) {
       <div class="ly-inputs">
         ${LANGS.map(
           (l) => `<label class="field"><span>${l.label} · ${l.name} <span class="muted small" data-count="${l.key}"></span></span>
-            <textarea class="input ly-input" name="ly-${l.key}" rows="16" spellcheck="${l.key === 'vi'}" lang="${l.key === 'vi' ? 'vi' : 'ja'}" placeholder="Dán lời ${l.name.toLowerCase()}…">${esc(p.lyrics[l.key])}</textarea></label>`,
+            <textarea class="input ly-input" name="ly-${l.key}" rows="16" spellcheck="${l.key === 'vi' || l.key === 'en'}" lang="${l.key === 'vi' ? 'vi' : l.key === 'en' ? 'en' : 'ja'}" placeholder="Dán lời ${l.name.toLowerCase()}…">${esc(p.lyrics[l.key])}</textarea></label>`,
         ).join('')}
       </div>
       <details class="align-preview" open>

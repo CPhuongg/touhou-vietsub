@@ -90,7 +90,8 @@ export function postView(ctx, id) {
             hasLyrics(p.lyrics)
               ? `<div class="ly-controls">
               <div class="seg" role="group" aria-label="Chế độ hiển thị lời">${MODES.map((m) => `<button type="button" data-mode="${m.key}">${m.label}</button>`).join('')}</div>
-              ${p.lyrics.rm.trim() ? `<label class="switch"><input type="checkbox" class="rm-toggle"> Romaji</label>` : ''}
+              ${p.lyrics.rm.trim() ? `<label class="switch"><input type="checkbox" class="lang-toggle" data-lang="rm"> Romaji</label>` : ''}
+              ${p.lyrics.en.trim() && p.lyrics.jp.trim() ? `<label class="switch"><input type="checkbox" class="lang-toggle" data-lang="en"> English</label>` : ''}
             </div>`
               : ''
           }
@@ -117,11 +118,12 @@ export function postView(ctx, id) {
   const lyEl = root.querySelector('.lyrics');
   const tabsEl = root.querySelector('.single-tabs');
   let mode = lsGet('vsub-lymode', 'interleave');
-  let showRm = lsGet('vsub-showrm', true);
+  const show = { rm: lsGet('vsub-showrm', true), en: lsGet('vsub-showen', true) };
   let single = lsGet('vsub-single', 'vi');
-  const rmToggle = root.querySelector('.rm-toggle');
-  if (rmToggle) rmToggle.checked = showRm;
-  const haveRm = !!p.lyrics.rm.trim();
+  root.querySelectorAll('.lang-toggle').forEach((t) => (t.checked = show[t.dataset.lang]));
+  // Bài không có lời Nhật → EN là lời gốc, luôn hiện
+  const enOnly = !p.lyrics.jp.trim();
+  const visible = (k) => (k === 'rm' ? show.rm : k === 'en' ? show.en || enOnly : true);
 
   function renderLyrics() {
     if (!hasLyrics(p.lyrics)) {
@@ -129,10 +131,10 @@ export function postView(ctx, id) {
       return;
     }
     root.querySelectorAll('[data-mode]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.mode === mode)));
-    const rm = showRm && haveRm;
+    const keys = LANGS.map((l) => l.key).filter(visible);
     lyEl.className = `lyrics mode-${mode}`;
     if (mode === 'single') {
-      const avail = LANGS.filter((l) => p.lyrics[l.key].trim() && (l.key !== 'rm' || showRm));
+      const avail = LANGS.filter((l) => p.lyrics[l.key].trim() && visible(l.key));
       if (!avail.some((l) => l.key === single)) single = avail[avail.length - 1]?.key || 'jp';
       tabsEl.hidden = false;
       tabsEl.innerHTML = avail
@@ -141,7 +143,7 @@ export function postView(ctx, id) {
       lyEl.innerHTML = renderSingle(p.lyrics, single);
     } else {
       tabsEl.hidden = true;
-      lyEl.innerHTML = mode === 'parallel' ? renderParallel(p.lyrics, rm) : renderInterleave(p.lyrics, rm);
+      lyEl.innerHTML = mode === 'parallel' ? renderParallel(p.lyrics, keys) : renderInterleave(p.lyrics, keys);
     }
   }
   root.querySelectorAll('[data-mode]').forEach((b) =>
@@ -151,11 +153,13 @@ export function postView(ctx, id) {
       renderLyrics();
     }),
   );
-  rmToggle?.addEventListener('change', () => {
-    showRm = rmToggle.checked;
-    lsSet('vsub-showrm', showRm);
-    renderLyrics();
-  });
+  root.querySelectorAll('.lang-toggle').forEach((t) =>
+    t.addEventListener('change', () => {
+      show[t.dataset.lang] = t.checked;
+      lsSet(t.dataset.lang === 'rm' ? 'vsub-showrm' : 'vsub-showen', t.checked);
+      renderLyrics();
+    }),
+  );
   tabsEl.addEventListener('click', (e) => {
     const b = e.target.closest('[data-lang]');
     if (!b) return;
