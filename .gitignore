@@ -1,0 +1,9 @@
+# File nhạc chỉ lưu trong máy, không đưa lên GitHub
+data/media-private/
+
+# Rác hệ điều hành / công cụ
+.claude/
+Thumbs.db
+desktop.ini
+.DS_Store
+*.log
