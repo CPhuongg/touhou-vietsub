@@ -1,5 +1,5 @@
 // Trang tạo / sửa bài
-import { TAG_FIELDS, esc, el, youtubeId, debounce } from '../util.js';
+import { TAG_FIELDS, esc, el, youtubeId, debounce, accentVars, postAccent, extractPalette, ACCENT_PRESETS, isHex } from '../util.js';
 import { TagSelect, toast, hydrateMedia } from '../ui.js';
 import { EMPTY_POST } from '../store.js';
 import { markdown } from '../markdown.js';
@@ -45,10 +45,13 @@ export function editorView(ctx, id) {
   let dirty = false;
   let saving = false;
 
-  const root = el(`<form class="editor" autocomplete="off" novalidate>
+  const root = el(`<form class="editor pa" autocomplete="off" novalidate>
     <div class="editor-head">
+      <div class="eh-dot" aria-hidden="true">♪</div>
+      <div>
       <h1>${existing ? 'Sửa bài' : 'Bài mới'}</h1>
       <p class="muted small">Dán lời vào các ô bên dưới, trang sẽ tự ghép theo dòng. Dòng trống = ngắt đoạn. <kbd>Ctrl</kbd>+<kbd>S</kbd> để lưu.</p>
+      </div>
     </div>
 
     <section class="eblock">
@@ -69,6 +72,8 @@ export function editorView(ctx, id) {
         </div>
         <input type="file" accept="image/*" class="cover-input" hidden>
         <button type="button" class="btn small-btn cover-remove" hidden>Xoá ảnh bìa</button>
+        <h2 class="block-h" style="margin-top:22px">Màu chủ đạo</h2>
+        <div class="accent-picker"></div>
       </div>
       <div>
         <h2 class="block-h">Audio</h2>
@@ -184,6 +189,7 @@ export function editorView(ctx, id) {
       removeCover = false;
       showCover();
       markDirty();
+      loadPalette(coverBlob);
     } catch (e) {
       console.error(e);
       toast('Không đọc được ảnh này.', 'error');
@@ -222,8 +228,99 @@ export function editorView(ctx, id) {
     removeCover = true;
     showCover();
     markDirty();
+    coverPalette = [];
+    if (!accentManual) accent = '';
+    renderAccent();
   });
   showCover();
+
+  /* ---------- màu chủ đạo ---------- */
+  let accent = p.accent || '';
+  let accentManual = !!p.accent;
+  let coverPalette = [];
+  const ap = root.querySelector('.accent-picker');
+  const autoAccent = () => postAccent({ ...p, accent: '', titleJP: root.querySelector('[name="titleJP"]').value || p.titleJP });
+  function applyAccent() {
+    root.setAttribute('style', accentVars(accent || autoAccent()));
+  }
+  function renderAccent() {
+    const cur = accent || autoAccent();
+    const sw = (hex, title) =>
+      `<button type="button" class="swatch" style="--sw:${hex}" data-hex="${hex}" title="${esc(title || hex)}" aria-label="Chọn màu ${hex}" aria-pressed="${accent === hex}"></button>`;
+    ap.innerHTML = `
+      <div class="ap-current">
+        <label class="ap-swatch-big" title="Bấm để tự chọn màu"><input type="color" class="ap-color" value="${cur}" aria-label="Tự chọn màu"></label>
+        <input class="input ap-hex" value="${accent || ''}" placeholder="${cur}" maxlength="7" aria-label="Mã màu hex" spellcheck="false">
+        <span class="muted small">${accent ? (coverPalette.includes(accent) ? 'Lấy từ ảnh bìa' : 'Màu tự chọn') : 'Tự động'}</span>
+      </div>
+      <div class="ap-row"><span class="ap-label">Từ ảnh bìa</span>
+        <div class="swatches">${coverPalette.length ? coverPalette.map((h) => sw(h, 'Màu từ ảnh bìa')).join('') : '<span class="from-cover-empty">Thêm ảnh bìa để lấy màu tự động</span>'}</div>
+      </div>
+      <div class="ap-row"><span class="ap-label">Bảng màu</span>
+        <div class="swatches"><button type="button" class="swatch auto" data-hex="" title="Tự động" aria-label="Màu tự động" aria-pressed="${!accent}">A</button>${ACCENT_PRESETS.map((h) => sw(h)).join('')}</div>
+      </div>`;
+    applyAccent();
+  }
+  function setAccent(hex, manual = true) {
+    accent = hex;
+    accentManual = manual && !!hex;
+    renderAccent();
+    markDirty();
+  }
+  ap.addEventListener('click', (e) => {
+    const b = e.target.closest('.swatch');
+    if (b) setAccent(b.dataset.hex);
+  });
+  ap.addEventListener('input', (e) => {
+    if (e.target.matches('.ap-color')) {
+      accent = e.target.value;
+      accentManual = true;
+      applyAccent();
+      ap.querySelector('.ap-hex').value = accent;
+      markDirty();
+    } else if (e.target.matches('.ap-hex')) {
+      let v = e.target.value.trim().toLowerCase();
+      if (v && !v.startsWith('#')) v = '#' + v;
+      if (isHex(v)) {
+        accent = v;
+        accentManual = true;
+        applyAccent();
+        ap.querySelector('.ap-color').value = v;
+      }
+    }
+  });
+  ap.addEventListener('change', (e) => {
+    if (e.target.matches('.ap-color, .ap-hex')) renderAccent();
+  });
+  async function loadPalette(src) {
+    try {
+      coverPalette = await extractPalette(src);
+      if (!accentManual && coverPalette[0]) {
+        accent = coverPalette[0];
+        markDirty();
+      }
+    } catch (err) {
+      console.warn('Không lấy được màu từ ảnh', err);
+      coverPalette = [];
+    }
+    renderAccent();
+  }
+  root.querySelector('[name="titleJP"]').addEventListener('input', () => {
+    if (!accent) applyAccent();
+  });
+  renderAccent();
+  if (p.cover) {
+    store.source.mediaURL(p.cover, p.updatedAt).then((u) => {
+      if (!u) return;
+      // giữ màu đã lưu; chỉ hiển thị gợi ý từ ảnh
+      extractPalette(u)
+        .then((pal) => {
+          coverPalette = pal;
+          renderAccent();
+        })
+        .catch((err) => console.warn('Không lấy được màu từ ảnh', err));
+    });
+  }
 
   /* ---------- YouTube ---------- */
   const ytInput = root.querySelector('[name="youtube"]');
@@ -336,6 +433,7 @@ export function editorView(ctx, id) {
       youtube: fd.get('youtube').trim(),
       other: fd.get('other'),
       comment: fd.get('comment'),
+      accent: isHex(accent) ? accent : '',
       lyrics: Object.fromEntries(LANGS.map((l) => [l.key, lyInputs[l.key].value.replace(/\r\n?/g, '\n').replace(/\s+$/, '')])),
     };
     for (const f of TAG_FIELDS) data[f.key] = selects[f.key].getValue();

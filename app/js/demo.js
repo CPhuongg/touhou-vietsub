@@ -90,6 +90,7 @@ export function demoSeed() {
       originalTitle: [['少女綺想曲 ～ Dream Battle', '風神少女', 'おてんば恋娘', '上海紅茶館　～ Chinese Tea', 'Original!'][i % 5]],
       source: [source],
       cover: i === 5 ? '' : `media/${id}-cover.svg`,
+      accent: i === 5 ? '' : PALETTE[i % PALETTE.length][i % 2],
       youtube: '',
       audio: '',
       audioName: '',

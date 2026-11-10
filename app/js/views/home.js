@@ -1,5 +1,5 @@
 // Trang chủ: 4 kiểu xem + sidebar lọc
-import { TAG_FIELDS, FIELD_BY_KEY, esc, el, fmtDate, displayTitle, debounce, lsGet, lsSet, placeholderCover } from '../util.js';
+import { TAG_FIELDS, FIELD_BY_KEY, esc, el, fmtDate, displayTitle, debounce, lsGet, lsSet, placeholderCover, accentStyle } from '../util.js';
 import { pill, hydrateMedia } from '../ui.js';
 
 const TABS = [
@@ -45,7 +45,15 @@ export function homeView(ctx) {
   lsSet('vsub-tab', tab);
   const all = store.list();
 
-  const root = el(`<div class="home">
+  const nCircle = store.values('circle').size;
+  const nVocal = store.values('vocals').size;
+  const root = el(`<div>
+  <section class="home-hero">
+    <h1>Vietsub nhạc <span class="grad">Touhou</span></h1>
+    <p>Lời gốc, romaji và bản dịch tiếng Việt cho các bài hát doujin Touhou Project.</p>
+    ${all.length ? `<div class="stats"><span class="stat"><strong>${all.length}</strong> bài</span><span class="stat"><strong>${nCircle}</strong> circle</span><span class="stat"><strong>${nVocal}</strong> vocal</span></div>` : ''}
+  </section>
+  <div class="home">
     <aside class="sidebar"></aside>
     <section class="home-main">
       <div class="toolbar">
@@ -58,6 +66,7 @@ export function homeView(ctx) {
       <div class="chips"></div>
       <div class="results"></div>
     </section>
+  </div>
   </div>`);
 
   /* ---------- lọc ---------- */
@@ -87,7 +96,8 @@ export function homeView(ctx) {
 
   /* ---------- sidebar ---------- */
   const side = root.querySelector('.sidebar');
-  const wide = matchMedia('(min-width: 900px)').matches;
+  const wideMQ = matchMedia('(min-width: 960px)');
+  const wide = wideMQ.matches;
   side.innerHTML = `<details class="side-details"${wide || chipList.length || q ? ' open' : ''}>
     <summary>Tìm kiếm &amp; lọc</summary>
     <div class="widget">
@@ -115,6 +125,13 @@ export function homeView(ctx) {
     }).join('')}
     ${archivesWidget(all, params, month)}
   </details>`;
+
+  // Màn hình rộng: sidebar luôn mở (nút thu gọn bị ẩn bằng CSS)
+  const details = side.querySelector('.side-details');
+  const syncWide = () => {
+    if (wideMQ.matches) details.open = true;
+  };
+  wideMQ.addEventListener('change', syncWide);
 
   const search = side.querySelector('.search');
   const onSearch = debounce(() => {
@@ -171,7 +188,7 @@ export function homeView(ctx) {
   const coverImg = (p, cls = '') =>
     p.cover
       ? `<img class="cover ${cls}" data-media="${esc(p.cover)}" data-v="${esc(p.updatedAt)}" alt="" loading="lazy">`
-      : placeholderCover(p, store.color('circle', p.circle[0] || ''));
+      : placeholderCover(p);
 
   const titleHTML = (p) => {
     const t = displayTitle(p);
@@ -185,13 +202,13 @@ export function homeView(ctx) {
     const cards = slice
       .map((p) => {
         const t = displayTitle(p);
-        return `<article class="card">
+        return `<article class="card pa" style="${accentStyle(p)}">
           <a class="card-cover" href="#/post/${esc(p.id)}" tabindex="-1" aria-hidden="true">${coverImg(p)}</a>
           <div class="card-body">
             <h2 class="card-title"><a href="#/post/${esc(p.id)}">${titleHTML(p)}</a></h2>
             ${t.vi ? `<p class="card-vi">${esc(t.vi)}</p>` : ''}
             <div class="card-tags">${tags(p, 'circle')}${tags(p, 'source')}${tags(p, 'vocals', 2)}</div>
-            <div class="card-meta muted">${p.album.length ? esc(p.album.join(', ')) + ' · ' : ''}${fmtDate(p.createdAt)}</div>
+            <div class="card-meta muted"><span class="dot" aria-hidden="true"></span>${p.album.length ? esc(p.album.join(', ')) + ' · ' : ''}${fmtDate(p.createdAt)}</div>
           </div>
         </article>`;
       })
@@ -224,7 +241,7 @@ export function homeView(ctx) {
 
   function cell(p, col) {
     if (col === 'title')
-      return `<td class="td-title"><a href="#/post/${esc(p.id)}">${esc(displayTitle(p).main)}</a>${p.titleVI && (p.titleJP || p.titleRM) ? `<div class="muted small">${esc(p.titleVI)}</div>` : ''}</td>`;
+      return `<td class="td-title"><div><span class="dot" aria-hidden="true"></span><a href="#/post/${esc(p.id)}">${esc(displayTitle(p).main)}</a></div>${p.titleVI && (p.titleJP || p.titleRM) ? `<div class="small">${esc(p.titleVI)}</div>` : ''}</td>`;
     if (col === 'release' || col === 'createdAt') return `<td class="nowrap">${fmtDate(p[col])}</td>`;
     return `<td><div class="td-tags">${tags(p, col)}</div></td>`;
   }
@@ -238,7 +255,7 @@ export function homeView(ctx) {
           : `<th>${esc(c.label)}</th>`,
       )
       .join('');
-    const rows = (sortable ? sorted(list) : list).map((p) => `<tr>${cols.map((c) => cell(p, c.key)).join('')}</tr>`).join('');
+    const rows = (sortable ? sorted(list) : list).map((p) => `<tr class="pa" style="${accentStyle(p)}">${cols.map((c) => cell(p, c.key)).join('')}</tr>`).join('');
     return `<div class="table-wrap"><table class="ntable"><thead><tr>${head}</tr></thead><tbody>${rows}</tbody></table></div>`;
   }
 
@@ -276,7 +293,7 @@ export function homeView(ctx) {
   function galleryView(list) {
     return `<div class="gallery">${list
       .map(
-        (p) => `<a class="gcard" href="#/post/${esc(p.id)}">
+        (p) => `<a class="gcard pa" style="${accentStyle(p)}" href="#/post/${esc(p.id)}">
           <div class="gcover">${coverImg(p)}</div>
           <div class="gtitle">${esc(displayTitle(p).main)}</div>
           ${p.titleVI && (p.titleJP || p.titleRM) ? `<div class="gsub muted">${esc(p.titleVI)}</div>` : ''}
@@ -286,7 +303,7 @@ export function homeView(ctx) {
   }
 
   renderResults();
-  return { el: root, title: '' };
+  return { el: root, title: '', destroy: () => wideMQ.removeEventListener('change', syncWide) };
 }
 
 function archivesWidget(all, params, month) {

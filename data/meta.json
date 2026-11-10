@@ -1,3 +1,25 @@
 {
-  "colors": {}
+  "colors": {
+    "circle": {
+      "EastNewSound": "blue"
+    },
+    "album": {
+      "Bloody Hellfire": "pink"
+    },
+    "arrangement": {
+      "黒鳥": "orange"
+    },
+    "lyricist": {
+      "あおまふ": "green"
+    },
+    "vocals": {
+      "Nana Takahashi": "pink"
+    },
+    "originalTitle": {
+      "亡き王女の為のセプテット": "red"
+    },
+    "source": {
+      "東方紅魔郷": "brown"
+    }
+  }
 }

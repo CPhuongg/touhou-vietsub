@@ -1,5 +1,5 @@
 // Trang bài viết
-import { TAG_FIELDS, esc, el, fmtDate, displayTitle, plainTitle, youtubeId, lsGet, lsSet, placeholderCover } from '../util.js';
+import { TAG_FIELDS, esc, el, fmtDate, displayTitle, plainTitle, youtubeId, lsGet, lsSet, placeholderCover, accentStyle } from '../util.js';
 import { pill, hydrateMedia, confirmBox, toast } from '../ui.js';
 import { markdown } from '../markdown.js';
 import { LANGS, hasLyrics, renderInterleave, renderParallel, renderSingle } from '../lyrics.js';
@@ -37,7 +37,8 @@ export function postView(ctx, id) {
   ];
   if (p.release) infoRows.splice(2, 0, `<div class="prop"><div class="prop-k"><span aria-hidden="true">▤</span> Release</div><div class="prop-v">${fmtDate(p.release)}</div></div>`);
 
-  const root = el(`<article class="post">
+  const eyebrow = [p.circle[0], p.event[0], p.release ? p.release.slice(0, 4) : ''].filter(Boolean);
+  const root = el(`<article class="post pa" style="${accentStyle(p)}">
     ${p.trashedAt ? `<div class="notice warn">Bài này đang ở trong thùng rác. <a href="#/trash">Mở thùng rác</a></div>` : ''}
     <header class="post-hero">
       <div class="hero-bg" aria-hidden="true">${p.cover ? `<img data-media="${esc(p.cover)}" data-v="${esc(p.updatedAt)}" alt="">` : ''}</div>
@@ -45,9 +46,10 @@ export function postView(ctx, id) {
         <div class="hero-cover">${
           p.cover
             ? `<img data-media="${esc(p.cover)}" data-v="${esc(p.updatedAt)}" alt="Ảnh bìa ${esc(t.main)}">`
-            : placeholderCover(p, store.color('circle', p.circle[0] || ''))
+            : placeholderCover(p)
         }</div>
         <div class="hero-text">
+          ${eyebrow.length ? `<div class="eyebrow">${eyebrow.map(esc).join(' · ')}</div>` : ''}
           <h1 class="post-title"><span class="t-main">${esc(t.main)}</span>${t.rm ? `<span class="t-sep"> | </span><span class="t-rm">${esc(t.rm)}</span>` : ''}</h1>
           ${t.vi ? `<p class="post-vi">${esc(t.vi)}</p>` : ''}
           <div class="hero-tags">${p.circle.map((v) => pill(v, store.color('circle', v), { href: tagHref('circle', v) })).join('')}${p.source
@@ -55,7 +57,7 @@ export function postView(ctx, id) {
             .join('')}</div>
           ${
             app.editing
-              ? `<div class="post-actions"><a class="btn" href="#/edit/${esc(p.id)}">✎ Sửa</a>${
+              ? `<div class="post-actions"><a class="btn primary" href="#/edit/${esc(p.id)}">✎ Sửa</a>${
                   p.trashedAt ? '' : '<button class="btn danger-ghost" data-act="trash">🗑 Xoá</button>'
                 }</div>`
               : ''
@@ -195,8 +197,8 @@ function relatedHTML(store, p, list) {
   return `<section class="related"><h2 class="block-h">Related</h2><div class="related-grid">${rel
     .map(([q]) => {
       const why = q.circle.find((v) => p.circle.includes(v)) || q.originalTitle.find((v) => p.originalTitle.includes(v)) || q.source.find((v) => p.source.includes(v)) || '';
-      return `<a class="rcard" href="#/post/${esc(q.id)}">
-        <div class="gcover">${q.cover ? `<img data-media="${esc(q.cover)}" data-v="${esc(q.updatedAt)}" alt="" loading="lazy">` : placeholderCover(q, store.color('circle', q.circle[0] || ''))}</div>
+      return `<a class="rcard pa" style="${accentStyle(q)}" href="#/post/${esc(q.id)}">
+        <div class="gcover">${q.cover ? `<img data-media="${esc(q.cover)}" data-v="${esc(q.updatedAt)}" alt="" loading="lazy">` : placeholderCover(q)}</div>
         <div class="gtitle">${esc(plainTitle(q))}</div>
         ${why ? `<div class="muted small">Liên quan: ${esc(why)}</div>` : ''}
       </a>`;

@@ -28,20 +28,16 @@ const app = {
 /* ---------- theme ---------- */
 const themeBtn = document.getElementById('btn-theme');
 function applyTheme() {
-  const t = lsGet('vsub-theme', null);
-  if (t) document.documentElement.dataset.theme = t;
-  else delete document.documentElement.dataset.theme;
-  const dark = t ? t === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
-  themeBtn.textContent = dark ? '☀' : '☾';
-  themeBtn.title = dark ? 'Chuyển sang giao diện sáng' : 'Chuyển sang giao diện tối';
+  // Mặc định giao diện sáng; nút ☾/☀ chuyển và được nhớ lại
+  const t = lsGet('vsub-theme', null) === 'dark' ? 'dark' : 'light';
+  document.documentElement.dataset.theme = t;
+  themeBtn.textContent = t === 'dark' ? '☀' : '☾';
+  themeBtn.title = t === 'dark' ? 'Chuyển sang giao diện sáng' : 'Chuyển sang giao diện tối';
 }
 themeBtn.addEventListener('click', () => {
-  const t = lsGet('vsub-theme', null);
-  const dark = t ? t === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
-  lsSet('vsub-theme', dark ? 'light' : 'dark');
+  lsSet('vsub-theme', document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark');
   applyTheme();
 });
-matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme);
 applyTheme();
 
 /* ---------- router ---------- */

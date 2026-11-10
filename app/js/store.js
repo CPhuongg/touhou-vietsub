@@ -1,5 +1,5 @@
 // Kho bài viết: nạp, lưu, thùng rác, tag, tìm kiếm, nhập/xuất
-import { TAG_FIELDS, hashColor, norm, slugify, shortId, todayISO, lsGet, lsSet } from './util.js';
+import { TAG_FIELDS, hashColor, norm, slugify, shortId, todayISO, lsGet, lsSet, isHex } from './util.js';
 
 export const EMPTY_POST = () => ({
   id: '',
@@ -16,6 +16,7 @@ export const EMPTY_POST = () => ({
   originalTitle: [],
   source: [],
   cover: '',
+  accent: '',
   youtube: '',
   audio: '',
   audioName: '',
@@ -39,6 +40,7 @@ export function normalizePost(raw) {
   for (const k of ['titleJP', 'titleRM', 'titleVI', 'release', 'cover', 'youtube', 'audio', 'audioName', 'other', 'comment']) {
     p[k] = p[k] == null ? '' : String(p[k]);
   }
+  p.accent = isHex(p.accent) ? p.accent.toLowerCase() : '';
   p.trashedAt = p.trashedAt || null;
   return p;
 }

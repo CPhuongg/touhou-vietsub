@@ -30,6 +30,7 @@ Kho lưu trữ các bản vietsub nhạc Touhou. Đây là trang tĩnh, chạy t
 3. Bấm **+ Thêm bài** và nhập:
    - tiêu đề JP / Romaji / VI
    - ảnh bìa: chọn file, kéo thả, hoặc dán bằng `Ctrl+V`
+   - **màu chủ đạo** của bài: tự lấy từ ảnh bìa khi bạn thêm ảnh. Bạn cũng có thể bấm một màu gợi ý từ ảnh, chọn trong bảng màu, gõ mã hex, hoặc bấm ô màu lớn để tự chọn. Ô **A** là màu tự động.
    - thông tin bài (Circle, Album, Vocals…)
    - lời bài hát vào 3 ô JP / RM / VI, dòng trống là ngắt đoạn. Phần **Xem trước ghép dòng** báo đỏ những đoạn bị lệch số dòng.
 
