@@ -202,11 +202,6 @@ a.tag:hover { filter: brightness(0.96) saturate(1.1); }
 @media (min-width: 720px) { .site-header { position: sticky; top: 0; } }
 .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 8px 20px; flex-wrap: wrap; min-height: 66px; padding-top: 10px; padding-bottom: 10px; }
 .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; min-width: 0; }
-.brand-icon {
-  width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; font-size: 1.25rem; flex: none;
-  background: linear-gradient(135deg, #7c6cf2, #e45ca8);
-  box-shadow: 0 8px 18px -8px rgba(124, 108, 242, 0.8);
-}
 .brand-text { display: flex; flex-direction: column; min-width: 0; line-height: 1.25; }
 .brand-name { font-size: 1.08rem; font-weight: 800; letter-spacing: -0.02em; }
 .brand-tag { font-size: 0.76rem; color: var(--muted); }
@@ -232,13 +227,6 @@ a.tag:hover { filter: brightness(0.96) saturate(1.1); }
 .notice.warn { background: var(--warn-bg); color: var(--warn-ink); }
 
 /* ============ Trang chủ ============ */
-.home-hero { padding: 36px 0 8px; }
-.home-hero h1 { font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 800; letter-spacing: -0.03em; }
-.home-hero h1 .grad { background: linear-gradient(90deg, #6d5df0, #e0559f); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.home-hero p { margin: 6px 0 0; color: var(--muted); max-width: 640px; }
-.stats { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-.stat { display: inline-flex; align-items: baseline; gap: 6px; padding: 6px 14px; border-radius: 999px; background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow-sm); font-size: 0.85rem; color: var(--muted); }
-.stat strong { color: var(--text); font-size: 1rem; }
 
 .home { display: grid; gap: 24px; padding-top: 20px; grid-template-columns: minmax(0, 1fr); grid-template-areas: "side" "main"; }
 .home-main { grid-area: main; min-width: 0; }
@@ -359,6 +347,7 @@ img.missing { visibility: hidden; }
 .gtitle { padding: 10px 12px 2px; font-weight: 700; font-size: 0.92rem; }
 .gsub, .rcard > .small { padding: 0 12px 12px; font-size: 0.8rem; }
 .gsub { color: var(--pa-ink); font-weight: 600; }
+.related-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 @media (max-width: 560px) { .gallery, .related-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } }
 
 /* ============ Bài viết ============ */
@@ -367,7 +356,7 @@ img.missing { visibility: hidden; }
   position: relative; border-radius: 26px; overflow: hidden; isolation: isolate;
   background: linear-gradient(150deg, rgba(var(--pa-rgb), 0.28), rgba(var(--pa-rgb), 0.08) 55%, var(--surface));
   border: 1px solid var(--pa-line);
-  box-shadow: 0 30px 60px -36px rgba(var(--pa-rgb), 0.8);
+  box-shadow: var(--shadow-sm);
 }
 .hero-bg { position: absolute; inset: 0; z-index: -1; }
 .hero-bg img { width: 100%; height: 100%; object-fit: cover; filter: blur(40px) saturate(1.4); transform: scale(1.3); opacity: 0.35; }

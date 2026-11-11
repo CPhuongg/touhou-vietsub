@@ -196,7 +196,7 @@ function relatedHTML(store, p, list) {
     .map((q) => [q, score(q)])
     .filter(([, s]) => s > 0)
     .sort((a, b) => b[1] - a[1])
-    .slice(0, 3);
+    .slice(0, 4);
   if (!rel.length) return '';
   return `<section class="related"><h2 class="block-h">Related</h2><div class="related-grid">${rel
     .map(([q]) => {

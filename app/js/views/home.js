@@ -45,14 +45,7 @@ export function homeView(ctx) {
   lsSet('vsub-tab', tab);
   const all = store.list();
 
-  const nCircle = store.values('circle').size;
-  const nVocal = store.values('vocals').size;
   const root = el(`<div>
-  <section class="home-hero">
-    <h1>Vietsub nhạc <span class="grad">Touhou</span></h1>
-    <p>Lời gốc, romaji và bản dịch tiếng Việt cho các bài hát doujin Touhou Project.</p>
-    ${all.length ? `<div class="stats"><span class="stat"><strong>${all.length}</strong> bài</span><span class="stat"><strong>${nCircle}</strong> circle</span><span class="stat"><strong>${nVocal}</strong> vocal</span></div>` : ''}
-  </section>
   <div class="home">
     <aside class="sidebar"></aside>
     <section class="home-main">
