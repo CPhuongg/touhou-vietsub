@@ -1,6 +1,9 @@
 // Trang chủ: 4 kiểu xem + sidebar lọc
-import { TAG_FIELDS, FIELD_BY_KEY, esc, el, fmtDate, displayTitle, debounce, lsGet, lsSet, placeholderCover, accentStyle } from '../util.js';
-import { pill, hydrateMedia } from '../ui.js';
+import { TAG_FIELDS, FIELD_BY_KEY, esc, el, fmtDate, displayTitle, plainTitle, debounce, lsGet, lsSet, placeholderCover, accentStyle, youtubeId } from '../util.js';
+import { pill, hydrateMedia, TagSelect, toast } from '../ui.js';
+import { markdown } from '../markdown.js';
+import { LANGS, hasLyrics, renderInterleave, renderParallel } from '../lyrics.js';
+import { infoRowsHTML } from './post.js';
 
 const TABS = [
   { key: 'posts', label: 'Posts', icon: '☰' },
@@ -43,7 +46,8 @@ export function homeView(ctx) {
   const params = ctx.params;
   const tab = params.get('tab') || lsGet('vsub-tab', 'posts');
   lsSet('vsub-tab', tab);
-  const all = store.list();
+  let all = store.list();
+  const editable = app.editing && store.writable;
 
   const root = el(`<div>
   <div class="home">
@@ -169,13 +173,14 @@ export function homeView(ctx) {
     else if (tab === 'gallery') results.innerHTML = galleryView(list);
     else results.innerHTML = postsView(list);
     if (tab === 'table') bindSort();
+    else if (tab !== 'circle' && tab !== 'gallery') bindFeed();
     hydrateMedia(results, store.source);
   }
 
-  const tags = (p, key, max = 99) =>
+  const tags = (p, key, max = 99, link = true) =>
     p[key]
       .slice(0, max)
-      .map((v) => pill(v, store.color(key, v), { href: tagHref(key, v) }))
+      .map((v) => pill(v, store.color(key, v), link ? { href: tagHref(key, v) } : {}))
       .join('');
 
   const coverImg = (p, cls = '') =>
@@ -188,24 +193,64 @@ export function homeView(ctx) {
     return `<span class="t-main">${esc(t.main)}</span>${t.rm ? `<span class="t-sep"> | </span><span class="t-rm">${esc(t.rm)}</span>` : ''}`;
   };
 
+  /* ---------- Posts: hiện cả bài như blog ---------- */
+  const lyPrefs = () => ({
+    mode: lsGet('vsub-lymode', 'interleave') === 'parallel' ? 'parallel' : 'interleave',
+    rm: lsGet('vsub-showrm', true),
+    en: lsGet('vsub-showen', true),
+  });
+
+  function feedPost(p) {
+    const t = displayTitle(p);
+    const yt = youtubeId(p.youtube);
+    const eyebrow = [p.circle[0], p.event[0], p.release ? p.release.slice(0, 4) : ''].filter(Boolean);
+    const info = infoRowsHTML(store, p);
+    const href = `#/post/${esc(p.id)}`;
+    return `<article class="fpost pa" style="${accentStyle(p)}">
+      <header class="post-hero compact">
+        <div class="hero-bg" aria-hidden="true">${p.cover ? `<img data-media="${esc(p.cover)}" data-v="${esc(p.updatedAt)}" alt="" loading="lazy">` : ''}</div>
+        <div class="hero-inner">
+          <a class="hero-cover" href="${href}" tabindex="-1" aria-hidden="true">${coverImg(p)}</a>
+          <div class="hero-text">
+            ${eyebrow.length ? `<div class="eyebrow">${eyebrow.map(esc).join(' · ')}</div>` : ''}
+            <h2 class="post-title"><a href="${href}">${titleHTML(p)}</a></h2>
+            ${t.vi ? `<p class="post-vi">${esc(t.vi)}</p>` : ''}
+            <div class="hero-tags">${tags(p, 'circle')}${tags(p, 'source')}</div>
+            <div class="fmeta muted small">Đăng ${fmtDate(p.createdAt)} · <a href="${href}">Mở bài riêng →</a>${editable ? ` · <a href="#/edit/${esc(p.id)}">✎ Sửa</a>` : ''}</div>
+          </div>
+        </div>
+      </header>
+      <div class="post-body">
+        ${info.length ? `<section class="block"><h3 class="block-h">Info</h3><div class="props">${info.join('')}</div></section>` : ''}
+        ${
+          yt
+            ? `<section class="block"><h3 class="block-h">Audio</h3><button type="button" class="yt yt-facade" data-yt="${yt}" aria-label="Phát ${esc(plainTitle(p))} trên YouTube"><img src="https://i.ytimg.com/vi/${yt}/hqdefault.jpg" alt="" loading="lazy"><span class="yt-play" aria-hidden="true">▶</span></button></section>`
+            : ''
+        }
+        <section class="block lyrics-block"><h3 class="block-h">Lyrics</h3><div class="lyrics" data-id="${esc(p.id)}"></div></section>
+        ${p.other.trim() ? `<section class="block callout"><h3 class="block-h">Other</h3><div class="md">${markdown(p.other)}</div></section>` : ''}
+        ${p.comment.trim() ? `<section class="block callout"><h3 class="block-h">Comment</h3><div class="md">${markdown(p.comment)}</div></section>` : ''}
+      </div>
+    </article>`;
+  }
+
   function postsView(list) {
     const pages = Math.max(1, Math.ceil(list.length / PER_PAGE));
     const page = Math.min(pages, Math.max(1, +params.get('page') || 1));
     const slice = list.slice((page - 1) * PER_PAGE, page * PER_PAGE);
-    const cards = slice
-      .map((p) => {
-        const t = displayTitle(p);
-        return `<article class="card pa" style="${accentStyle(p)}">
-          <a class="card-cover" href="#/post/${esc(p.id)}" tabindex="-1" aria-hidden="true">${coverImg(p)}</a>
-          <div class="card-body">
-            <h2 class="card-title"><a href="#/post/${esc(p.id)}">${titleHTML(p)}</a></h2>
-            ${t.vi ? `<p class="card-vi">${esc(t.vi)}</p>` : ''}
-            <div class="card-tags">${tags(p, 'circle')}${tags(p, 'source')}${tags(p, 'vocals', 2)}</div>
-            <div class="card-meta muted"><span class="dot" aria-hidden="true"></span>${p.album.length ? esc(p.album.join(', ')) + ' · ' : ''}${fmtDate(p.createdAt)}</div>
-          </div>
-        </article>`;
-      })
-      .join('');
+    const pr = lyPrefs();
+    const controls = `<div class="feed-controls ly-controls">
+      <span class="muted small">Hiển thị lời:</span>
+      <div class="seg" role="group" aria-label="Chế độ hiển thị lời">${[
+        ['interleave', 'Xen kẽ'],
+        ['parallel', 'Song song'],
+      ]
+        .map(([k, l]) => `<button type="button" data-mode="${k}" aria-pressed="${pr.mode === k}">${l}</button>`)
+        .join('')}</div>
+      <label class="switch"><input type="checkbox" class="lang-toggle" data-lang="rm"${pr.rm ? ' checked' : ''}> Romaji</label>
+      <label class="switch"><input type="checkbox" class="lang-toggle" data-lang="en"${pr.en ? ' checked' : ''}> English</label>
+    </div>`;
+    const cards = slice.map(feedPost).join('');
     const nav =
       pages > 1
         ? `<nav class="pager">
@@ -214,7 +259,48 @@ export function homeView(ctx) {
           ${page < pages ? `<a class="btn" href="${hrefWith(params, { page: page + 1 })}">Trang sau →</a>` : '<span></span>'}
         </nav>`
         : '';
-    return `<div class="cards">${cards}</div>${nav}`;
+    return `${controls}<div class="feed">${cards}</div>${nav}`;
+  }
+
+  function renderFeedLyrics() {
+    const pr = lyPrefs();
+    results.querySelectorAll('.feed-controls [data-mode]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.mode === pr.mode)));
+    results.querySelectorAll('.feed .lyrics[data-id]').forEach((box) => {
+      const p = store.get(box.dataset.id);
+      if (!p || !hasLyrics(p.lyrics)) {
+        box.innerHTML = '<p class="muted">Chưa có lời.</p>';
+        return;
+      }
+      const enOnly = !p.lyrics.jp.trim();
+      const keys = LANGS.map((l) => l.key).filter((k) => (k === 'rm' ? pr.rm : k === 'en' ? pr.en || enOnly : true));
+      box.className = `lyrics mode-${pr.mode}`;
+      box.innerHTML = pr.mode === 'parallel' ? renderParallel(p.lyrics, keys) : renderInterleave(p.lyrics, keys);
+    });
+  }
+
+  function bindFeed() {
+    renderFeedLyrics();
+    results.querySelectorAll('.feed-controls [data-mode]').forEach((b) =>
+      b.addEventListener('click', () => {
+        lsSet('vsub-lymode', b.dataset.mode);
+        renderFeedLyrics();
+      }),
+    );
+    results.querySelectorAll('.feed-controls .lang-toggle').forEach((t) =>
+      t.addEventListener('change', () => {
+        lsSet(t.dataset.lang === 'rm' ? 'vsub-showrm' : 'vsub-showen', t.checked);
+        renderFeedLyrics();
+      }),
+    );
+    results.querySelectorAll('.yt-facade').forEach((b) =>
+      b.addEventListener('click', () => {
+        b.replaceWith(
+          el(
+            `<div class="yt"><iframe src="https://www.youtube-nocookie.com/embed/${b.dataset.yt}?autoplay=1" title="YouTube" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>`,
+          ),
+        );
+      }),
+    );
   }
 
   const sortState = () => {
@@ -233,11 +319,14 @@ export function homeView(ctx) {
   }
 
   function cell(p, col) {
+    const ed = editable ? ` data-col="${col}" tabindex="0"` : '';
     if (col === 'title')
-      return `<td class="td-title"><div><span class="dot" aria-hidden="true"></span><a href="#/post/${esc(p.id)}">${esc(displayTitle(p).main)}</a></div>${p.titleVI && (p.titleJP || p.titleRM) ? `<div class="small">${esc(p.titleVI)}</div>` : ''}</td>`;
-    if (col === 'release' || col === 'createdAt') return `<td class="nowrap">${fmtDate(p[col])}</td>`;
-    return `<td><div class="td-tags">${tags(p, col)}</div></td>`;
+      return `<td class="td-title"${ed}><div><span class="dot" aria-hidden="true"></span><a href="#/post/${esc(p.id)}">${esc(displayTitle(p).main)}</a></div>${p.titleVI && (p.titleJP || p.titleRM) ? `<div class="small">${esc(p.titleVI)}</div>` : ''}</td>`;
+    if (col === 'release' || col === 'createdAt') return `<td class="nowrap"${ed}>${fmtDate(p[col])}</td>`;
+    return `<td${ed}><div class="td-tags">${tags(p, col, 99, !editable)}</div></td>`;
   }
+
+  const rowHTML = (p, cols) => `<tr class="pa" style="${accentStyle(p)}" data-id="${esc(p.id)}">${cols.map((c) => cell(p, c.key)).join('')}</tr>`;
 
   function tableView(list, cols = TABLE_COLS, sortable = true) {
     const { col, dir } = sortState();
@@ -248,8 +337,163 @@ export function homeView(ctx) {
           : `<th>${esc(c.label)}</th>`,
       )
       .join('');
-    const rows = (sortable ? sorted(list) : list).map((p) => `<tr class="pa" style="${accentStyle(p)}">${cols.map((c) => cell(p, c.key)).join('')}</tr>`).join('');
-    return `<div class="table-wrap"><table class="ntable"><thead><tr>${head}</tr></thead><tbody>${rows}</tbody></table></div>`;
+    const rows = (sortable ? sorted(list) : list).map((p) => rowHTML(p, cols)).join('');
+    const hint = editable && sortable ? `<p class="table-hint muted small">✎ Bấm vào một ô để sửa nhanh. Release và Event được đồng bộ cho các bài cùng album.</p>` : '';
+    return `${hint}<div class="table-wrap"><table class="ntable${editable ? ' editable' : ''}" data-cols="${cols.map((c) => c.key).join(',')}"><thead><tr>${head}</tr></thead><tbody>${rows}</tbody></table></div>`;
+  }
+
+  /* ---------- sửa nhanh trong bảng ---------- */
+  const COL_LABEL = Object.fromEntries(TABLE_COLS.map((c) => [c.key, c.label]));
+  let pop = null;
+  let queue = Promise.resolve();
+
+  function closePop() {
+    if (!pop) return;
+    document.removeEventListener('mousedown', pop.outside, true);
+    window.removeEventListener('resize', pop.onResize);
+    pop.box.remove();
+    pop = null;
+  }
+
+  function openCellEditor(td) {
+    closePop();
+    const id = td.parentElement.dataset.id;
+    const col = td.dataset.col;
+    const p = store.get(id);
+    if (!p) return;
+    const box = el(`<div class="cell-pop pa" style="${accentStyle(p)}" role="dialog" aria-label="Sửa ${esc(COL_LABEL[col] || col)}"></div>`);
+    const colors = [];
+    let getValue;
+    let focusEl;
+    const f = FIELD_BY_KEY[col];
+    if (f) {
+      const ts = new TagSelect({
+        label: f.label,
+        options: store.suggestions(col),
+        value: p[col],
+        single: f.single,
+        colorOf: (v) => store.color(col, v),
+        onColor: (v, c) => colors.push([v, c]),
+      });
+      box.appendChild(el(`<div class="cell-pop-h">${esc(f.label)}</div>`));
+      box.appendChild(ts.root);
+      getValue = () => ts.getValue();
+      focusEl = ts.input;
+    } else if (col === 'release' || col === 'createdAt') {
+      box.innerHTML = `<label class="field"><span>${esc(COL_LABEL[col])}</span><input class="input" type="date" value="${esc((p[col] || '').slice(0, 10))}"></label>`;
+      const inp = box.querySelector('input');
+      getValue = () => inp.value;
+      focusEl = inp;
+    } else if (col === 'title') {
+      box.innerHTML = [
+        ['titleJP', 'Tiêu đề gốc (JP)'],
+        ['titleRM', 'Romaji'],
+        ['titleVI', 'Tiêu đề tiếng Việt'],
+      ]
+        .map(([k, l]) => `<label class="field"><span>${l}</span><input class="input" name="${k}" value="${esc(p[k])}" autocomplete="off"></label>`)
+        .join('');
+      getValue = () => Object.fromEntries([...box.querySelectorAll('input')].map((i) => [i.name, i.value.trim()]));
+      focusEl = box.querySelector('input');
+    } else return;
+    box.appendChild(el(`<div class="cell-pop-foot muted small"><span>Bấm ra ngoài, Esc hoặc Enter để lưu</span><button type="button" class="btn small-btn" data-cancel>Huỷ</button></div>`));
+    document.body.appendChild(box);
+
+    const r = td.getBoundingClientRect();
+    const w = Math.min(Math.max(r.width, 300), innerWidth - 16);
+    box.style.width = w + 'px';
+    box.style.left = Math.max(8, Math.min(r.left, innerWidth - w - 8)) + scrollX + 'px';
+    box.style.top = r.top + scrollY + 'px';
+
+    const commit = () => {
+      const value = getValue();
+      closePop();
+      queue = queue.then(() => saveCell(id, col, value, colors));
+    };
+    const outside = (e) => {
+      if (!box.contains(e.target)) commit();
+    };
+    // capture: xử lý trước TagSelect (Enter khi ô gõ trống = lưu, còn chữ = thêm tag)
+    box.addEventListener(
+      'keydown',
+      (e) => {
+        const isTagInput = e.target.matches('.ts-input');
+        if (e.key === 'Escape' || (e.key === 'Enter' && (!isTagInput || !e.target.value.trim()))) {
+          e.preventDefault();
+          e.stopPropagation();
+          commit();
+          td.focus();
+        }
+      },
+      true,
+    );
+    box.querySelector('[data-cancel]').addEventListener('click', () => {
+      closePop();
+      td.focus();
+    });
+    document.addEventListener('mousedown', outside, true);
+    const onResize = () => closePop();
+    window.addEventListener('resize', onResize);
+    pop = { box, outside, onResize };
+    focusEl?.focus();
+  }
+
+  async function saveCell(id, col, value, colors) {
+    const cur = store.get(id);
+    if (!cur) return;
+    const next = { ...cur };
+    if (col === 'title') {
+      if (!value.titleJP && !value.titleRM && !value.titleVI) {
+        toast('Cần ít nhất một tiêu đề.', 'error');
+        return;
+      }
+      Object.assign(next, value);
+    } else if (col === 'createdAt') {
+      if (!value) return;
+      next.createdAt = value + (cur.createdAt || '').slice(10);
+    } else next[col] = value;
+    const keys = col === 'title' ? ['titleJP', 'titleRM', 'titleVI'] : [col];
+    const changed = keys.some((k) => JSON.stringify(next[k]) !== JSON.stringify(cur[k]));
+    if (!changed && !colors.length) return;
+    try {
+      for (const [v, c] of colors) (store.meta.colors[col] ||= {})[v] = c;
+      const saved = await store.save(next, { colorsChanged: colors.length > 0 });
+      const synced = await store.syncAlbum(saved, cur);
+      all = store.list();
+      refreshRows([saved.id, ...synced.map((q) => q.id)]);
+      const others = new Set(synced.map((q) => q.id).filter((x) => x !== saved.id)).size;
+      toast(others ? `Đã lưu · đồng bộ Release/Event cho ${others} bài cùng album.` : 'Đã lưu.', 'ok');
+    } catch (e) {
+      console.error(e);
+      toast(`Lưu thất bại: ${e.message}`, 'error', 6000);
+    }
+  }
+
+  function refreshRows(ids) {
+    for (const id of new Set(ids)) {
+      const p = store.get(id);
+      if (!p) continue;
+      results.querySelectorAll(`tr[data-id="${CSS.escape(id)}"]`).forEach((tr) => {
+        const cols = tr.closest('table').dataset.cols.split(',').map((k) => TABLE_COLS.find((c) => c.key === k));
+        const fresh = el(`<table><tbody>${rowHTML(p, cols)}</tbody></table>`).querySelector('tr');
+        tr.replaceWith(fresh);
+        fresh.classList.add('flash');
+      });
+    }
+  }
+
+  if (editable) {
+    results.addEventListener('click', (e) => {
+      const td = e.target.closest('td[data-col]');
+      if (!td || e.target.closest('a')) return;
+      openCellEditor(td);
+    });
+    results.addEventListener('keydown', (e) => {
+      const td = e.target.closest?.('td[data-col]');
+      if (td && e.target === td && e.key === 'Enter') {
+        e.preventDefault();
+        openCellEditor(td);
+      }
+    });
   }
 
   function bindSort() {
@@ -296,7 +540,14 @@ export function homeView(ctx) {
   }
 
   renderResults();
-  return { el: root, title: '', destroy: () => wideMQ.removeEventListener('change', syncWide) };
+  return {
+    el: root,
+    title: '',
+    destroy: () => {
+      wideMQ.removeEventListener('change', syncWide);
+      closePop();
+    },
+  };
 }
 
 function archivesWidget(all, params, month) {

@@ -452,9 +452,11 @@ export function editorView(ctx, id) {
     stateEl.textContent = 'Đang lưu…';
     try {
       for (const [field, v, c] of pendingColors) (store.meta.colors[field] ||= {})[v] = c;
+      const prev = data.id ? store.get(data.id) : null;
       const saved = await store.save(data, { coverBlob, removeCover, audioFile, removeAudio, colorsChanged: pendingColors.length > 0 });
+      const synced = (await store.syncAlbum(saved, prev)).filter((q) => q.id !== saved.id);
       dirty = false;
-      toast('Đã lưu bài.', 'ok');
+      toast(synced.length ? `Đã lưu bài và đồng bộ Release/Event cho ${synced.length} bài cùng album.` : 'Đã lưu bài.', 'ok');
       app.navigate(`#/post/${saved.id}`);
     } catch (e) {
       console.error(e);

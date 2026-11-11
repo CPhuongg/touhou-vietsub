@@ -205,6 +205,59 @@ export class Store {
     return changed;
   }
 
+  /* ---------- đồng bộ theo album ---------- */
+  albumSiblings(p) {
+    if (!p.album.length) return [];
+    return this.list().filter((q) => q.id !== p.id && q.album.some((a) => p.album.includes(a)));
+  }
+
+  /**
+   * Sau khi lưu bài `p` (trước đó là `prev`): các bài cùng album dùng chung Release và Event.
+   * - Release/Event vừa đổi (khác rỗng) → ghi sang các bài cùng album.
+   * - Album vừa đổi → bài này lấy Release/Event còn trống từ bài cùng album.
+   * Trả về danh sách bài đã được cập nhật thêm (kể cả `p` nếu nó được điền).
+   */
+  async syncAlbum(p, prev) {
+    const same = (a, b) => JSON.stringify(a ?? '') === JSON.stringify(b ?? '');
+    const empty = (v) => (Array.isArray(v) ? !v.length : !v);
+    const copy = (v) => (Array.isArray(v) ? [...v] : v);
+    const fields = ['release', 'event'];
+    const out = [];
+    let cur = p;
+    if (prev && !same(prev.album, p.album)) {
+      const sib = this.albumSiblings(p);
+      const upd = { ...p };
+      let diff = false;
+      for (const f of fields) {
+        if (!empty(p[f])) continue;
+        const src = sib.find((q) => !empty(q[f]));
+        if (src) {
+          upd[f] = copy(src[f]);
+          diff = true;
+        }
+      }
+      if (diff) {
+        cur = await this.save(upd);
+        out.push(cur);
+      }
+    }
+    const pushed = fields.filter((f) => !empty(cur[f]) && (!prev || !same(prev[f], cur[f])));
+    if (pushed.length) {
+      for (const q of this.albumSiblings(cur)) {
+        const upd = { ...q };
+        let diff = false;
+        for (const f of pushed) {
+          if (!same(q[f], cur[f])) {
+            upd[f] = copy(cur[f]);
+            diff = true;
+          }
+        }
+        if (diff) out.push(await this.save(upd));
+      }
+    }
+    return out;
+  }
+
   async setColor(field, value, color) {
     this.requireWritable();
     (this.meta.colors[field] ||= {})[value] = color;

@@ -35,6 +35,8 @@ Kho lưu trữ các bản vietsub nhạc Touhou. Đây là trang tĩnh, chạy t
    - lời bài hát vào 3 ô JP / RM / VI, dòng trống là ngắt đoạn. Phần **Xem trước ghép dòng** báo đỏ những đoạn bị lệch số dòng.
 
    Bấm **Lưu**, hoặc `Ctrl+S`.
+
+   Bạn cũng có thể **sửa nhanh** ngay ở tab **Bảng** trên trang chủ: bấm vào một ô (tiêu đề, Circle, Album, Release…), sửa, rồi bấm ra ngoài hoặc nhấn Esc/Enter. Thay đổi được lưu ngay. **Release** và **Event** dùng chung cho các bài cùng album: sửa ở một bài thì các bài cùng album cũng đổi theo. Khi gán album cho một bài còn trống Release hoặc Event, bài đó lấy luôn giá trị từ các bài cùng album.
 4. Đăng lên GitHub:
 
    ```bash

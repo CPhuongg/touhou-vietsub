@@ -331,6 +331,45 @@ img.missing { visibility: hidden; }
 .td-title .small { padding-left: 18px; font-weight: 500; color: var(--pa-ink); }
 .ntable td .td-tags { min-width: 110px; }
 
+/* Sửa nhanh trong bảng */
+.table-hint { margin: 0 0 10px; }
+.ntable.editable td[data-col] { cursor: pointer; }
+.ntable.editable td[data-col]:hover { box-shadow: inset 0 0 0 1px var(--pa-line, var(--border)); background: var(--hover); }
+.ntable.editable td[data-col]:focus-visible { outline-offset: -2px; }
+.ntable tr.flash { animation: flash 1.2s ease-out; }
+@keyframes flash { from { background: var(--pa-soft, var(--hover)); } to { background: transparent; } }
+.cell-pop {
+  position: absolute; z-index: 60; display: flex; flex-direction: column; gap: 10px; padding: 12px;
+  background: var(--surface); border: 1px solid var(--pa-line, var(--border)); border-radius: 14px; box-shadow: var(--shadow-lg);
+}
+.cell-pop-h { font-size: 0.8rem; font-weight: 600; color: var(--text-2); }
+.cell-pop-foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+
+/* Posts: cả bài dạng blog */
+.feed-controls { margin-bottom: 14px; padding: 8px 12px; border: 1px solid var(--border); border-radius: 16px; background: var(--surface); box-shadow: var(--shadow-sm); width: fit-content; max-width: 100%; }
+.feed { display: flex; flex-direction: column; gap: 44px; }
+.fpost .post-body { margin-top: 12px; gap: 12px; }
+.post-hero.compact .hero-inner { grid-template-columns: 170px minmax(0, 1fr); gap: 22px; padding: 20px; }
+.post-hero.compact .post-title { font-size: clamp(1.35rem, 2.6vw, 1.9rem); }
+.post-hero.compact .post-title a { text-decoration: none; }
+.post-hero.compact .post-title a:hover .t-main { color: var(--pa-ink); }
+.post-hero.compact .post-vi { font-size: 1.08rem; }
+.post-hero.compact .hero-cover .cover-ph { font-size: 3.2rem; }
+.fmeta a { color: var(--pa-ink); font-weight: 600; text-decoration: none; }
+.fmeta a:hover { text-decoration: underline; }
+@media (max-width: 680px) {
+  .post-hero.compact .hero-inner { grid-template-columns: 110px minmax(0, 1fr); gap: 14px; padding: 14px; align-items: center; }
+  .post-hero.compact .hero-cover { width: 100%; }
+}
+.fpost .yt { max-width: 520px; }
+.yt-facade { display: block; width: 100%; padding: 0; border: 0; cursor: pointer; }
+.yt-facade img { width: 100%; height: 100%; object-fit: cover; opacity: 0.92; transition: opacity 0.2s; }
+.yt-facade:hover img { opacity: 1; }
+.yt-play {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 68px; height: 48px; border-radius: 14px;
+  display: grid; place-items: center; font-size: 1.3rem; color: #fff; background: rgba(var(--pa-rgb), 0.92); box-shadow: 0 8px 20px -6px rgba(0, 0, 0, 0.6);
+}
+
 .group { margin-bottom: 20px; }
 .group > summary { cursor: pointer; display: flex; align-items: center; gap: 8px; padding: 6px 2px 10px; font-weight: 600; }
 

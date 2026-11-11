@@ -28,14 +28,7 @@ export function postView(ctx, id) {
   const yt = youtubeId(p.youtube);
   const canPlayAudio = p.audio && store.source.canPlayPrivate();
 
-  const infoRows = [
-    ...TAG_FIELDS.filter((f) => p[f.key].length).map(
-      (f) => `<div class="prop"><div class="prop-k"><span aria-hidden="true">${f.icon}</span> ${esc(f.label)}</div><div class="prop-v">${p[f.key]
-        .map((v) => pill(v, store.color(f.key, v), { href: tagHref(f.key, v) }))
-        .join('')}</div></div>`,
-    ),
-  ];
-  if (p.release) infoRows.splice(2, 0, `<div class="prop"><div class="prop-k"><span aria-hidden="true">▤</span> Release</div><div class="prop-v">${fmtDate(p.release)}</div></div>`);
+  const infoRows = infoRowsHTML(store, p);
 
   const eyebrow = [p.circle[0], p.event[0], p.release ? p.release.slice(0, 4) : ''].filter(Boolean);
   const root = el(`<article class="post pa" style="${accentStyle(p)}">
@@ -183,6 +176,17 @@ export function postView(ctx, id) {
 
   hydrateMedia(root, store.source);
   return { el: root, title: plainTitle(p) };
+}
+
+/** Các dòng Info (tag + Release) của một bài. */
+export function infoRowsHTML(store, p) {
+  const rows = TAG_FIELDS.filter((f) => p[f.key].length).map(
+    (f) => `<div class="prop"><div class="prop-k"><span aria-hidden="true">${f.icon}</span> ${esc(f.label)}</div><div class="prop-v">${p[f.key]
+      .map((v) => pill(v, store.color(f.key, v), { href: tagHref(f.key, v) }))
+      .join('')}</div></div>`,
+  );
+  if (p.release) rows.splice(2, 0, `<div class="prop"><div class="prop-k"><span aria-hidden="true">▤</span> Release</div><div class="prop-v">${fmtDate(p.release)}</div></div>`);
+  return rows;
 }
 
 function relatedHTML(store, p, list) {
