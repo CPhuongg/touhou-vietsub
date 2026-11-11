@@ -1,4 +1,5 @@
 {
+  "id": "eien-no-kakera-278",
   "titleJP": "永遠の欠片",
   "titleRM": "Eien no Kakera",
   "titleVI": "Mảnh vỡ vĩnh hằng",
@@ -8,7 +9,7 @@
   "album": [
     "Egoistic Flame"
   ],
-  "release": "",
+  "release": "2019-08-16",
   "event": [
     "Comiket 96"
   ],
@@ -26,7 +27,11 @@
     "墨染の桜 ～ Border of Life"
   ],
   "source": [],
+  "cover": "media/eien-no-kakera-278-cover.png",
+  "accent": "#790101",
   "youtube": "https://www.youtube.com/watch?v=Z6FsmFS9MFA",
+  "audio": "",
+  "audioName": "",
   "lyrics": {
     "jp": "広がる世界に降り積もる 夢と共に風に舞う\n\n一つ一つが忘れられない言の葉に それは綺麗で\nそれぞれ違う形で輝き出す それはかけがえの無い思い出\n\nいつもそばに居るのに 見えていない\n大切なものだから 隠したままで\n壊れないで欲しいと思うことが\nいつかそのことさえも忘れてしまう\n\n広がる世界に降り積もる 永遠さえ雪の様\n幾億の声が生まれでて 夢と共に風に舞う\n\n折り重なりいずれ重みに潰されても 忘れられない\n遠い記憶の果に住む儚さが見せた モノクロームの花びら\n\nいつもそばに居るのに 見えていない\n大切なものだから 隠したままで\n壊れないで欲しいと思うことが\nいつかそのことさえも忘れてしまう\n\n広がる世界に降り積もる 永遠さえ雪の様\n幾億の声が生まれでて 夢と共に風に舞う\n\nいつもそばに居るのに 見えていない\n大切なものだから 隠したままで\n壊れないで欲しいと思うことが\nいつかそのことさえも忘れてしまう\n\n広がる世界に降り積もる 永遠さえ雪の様\n幾億の声が生まれでて 夢と共に風に舞う",
     "rm": "",
@@ -35,12 +40,9 @@
   },
   "other": "",
   "comment": "",
-  "id": "eien-no-kakera-278",
   "createdAt": "2025-02-28T14:49:43.000Z",
-  "updatedAt": "2025-08-14T14:55:51.000Z",
+  "updatedAt": "2026-11-11T06:50:15.841Z",
   "trashedAt": null,
   "version": 1,
-  "accent": "#790101",
-  "importedFrom": "https://shiroway.wordpress.com/2025/02/28/%e6%b0%b8%e9%81%a0%e3%81%ae%e6%ac%a0%e7%89%87-eien-no-kakera/",
-  "cover": "media/eien-no-kakera-278-cover.png"
+  "importedFrom": "https://shiroway.wordpress.com/2025/02/28/%e6%b0%b8%e9%81%a0%e3%81%ae%e6%ac%a0%e7%89%87-eien-no-kakera/"
 }

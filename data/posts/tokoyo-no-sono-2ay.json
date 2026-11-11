@@ -1,4 +1,5 @@
 {
+  "id": "tokoyo-no-sono-2ay",
   "titleJP": "常世の園",
   "titleRM": "Tokoyo no Sono",
   "titleVI": "Khu vườn vĩnh cửu",
@@ -8,7 +9,7 @@
   "album": [
     "Egoistic Flame"
   ],
-  "release": "",
+  "release": "2019-08-16",
   "event": [
     "Comiket 96"
   ],
@@ -25,7 +26,11 @@
     "永遠の巫女"
   ],
   "source": [],
+  "cover": "media/tokoyo-no-sono-2ay-cover.png",
+  "accent": "#790101",
   "youtube": "https://www.youtube.com/watch?v=NEUNyv3GU4M",
+  "audio": "",
+  "audioName": "",
   "lyrics": {
     "jp": "かけがえのない古の楽園\nこの地もいずれ永遠に続く\n誰も知らない世界の表裏を\n目を逸らさずに導き合う\n\nあなたが傍にいてくれたから\n一人では難しいことも出来た\n夢を追いかけ走るあなたを\n手を伸ばし求めたい\n近づきたいの\n\n代わりのいない必要な存在\n期待されすぎ溜息付き\nこの先はまだ踏み入れたことがない\n顔背けずに切り開いた\n\n私を受け入れてくれたから\n二人ならどんなことも乗り越える\nここから全て始まったから\n築きたい守りたい\n歩んでゆくの\n\nあなたが傍にいてくれたから\n教えてくれたように\n進むからどんな時も\n\n私を受け入れてくれたから\n二人ならどんなことも乗り越える\nここから全て始まったから\n築きたい守りたい\n歩んでゆくの",
     "rm": "",
@@ -34,12 +39,9 @@
   },
   "other": "",
   "comment": "",
-  "id": "tokoyo-no-sono-2ay",
   "createdAt": "2025-08-05T07:09:16.000Z",
-  "updatedAt": "2025-08-14T14:52:11.000Z",
+  "updatedAt": "2026-11-11T06:50:14.853Z",
   "trashedAt": null,
   "version": 1,
-  "accent": "#790101",
-  "importedFrom": "https://shiroway.wordpress.com/2025/08/05/%e5%b8%b8%e4%b8%96%e3%81%ae%e5%9c%92-tokoyo-no-sono/",
-  "cover": "media/tokoyo-no-sono-2ay-cover.png"
+  "importedFrom": "https://shiroway.wordpress.com/2025/08/05/%e5%b8%b8%e4%b8%96%e3%81%ae%e5%9c%92-tokoyo-no-sono/"
 }

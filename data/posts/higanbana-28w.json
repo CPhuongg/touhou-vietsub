@@ -1,4 +1,5 @@
 {
+  "id": "higanbana-28w",
   "titleJP": "彼岸花",
   "titleRM": "Higanbana",
   "titleVI": "Bỉ ngạn hoa",
@@ -8,7 +9,7 @@
   "album": [
     "Egoistic Flame"
   ],
-  "release": "",
+  "release": "2019-08-16",
   "event": [
     "Comiket 96"
   ],
@@ -25,7 +26,11 @@
     "六十年目の東方裁判　～ Fate of Sixty Years"
   ],
   "source": [],
+  "cover": "media/higanbana-28w-cover.png",
+  "accent": "#790101",
   "youtube": "https://www.youtube.com/watch?v=QO3VerKakZw",
+  "audio": "",
+  "audioName": "",
   "lyrics": {
     "jp": "ありふれた悲しみと通り過ぎた熱\n過ちを繰り返し生きる意味知る\n\n生まれ落ちた嘘 飾り立てた真実を\n全て吐き出して 朽ちる彼岸花\n\n張り詰めた糸のように残酷な夢\nひとときの安らぎも望めないまま\n緩やかに侵されて痛みだす胸\n瞳には映らない正しさが欲しい\n\nゆらゆら彷徨う声解いて\n白黒つけましょう\nひとひら揺れてる花のように\nこの手で裁こう\n\n生まれ落ちた嘘 飾り立てた真実を\n全て吐き出して 朽ちる彼岸花",
     "rm": "",
@@ -34,12 +39,9 @@
   },
   "other": "",
   "comment": "",
-  "id": "higanbana-28w",
   "createdAt": "2025-03-15T01:12:26.000Z",
-  "updatedAt": "2025-08-14T14:53:36.000Z",
+  "updatedAt": "2026-11-11T06:50:15.398Z",
   "trashedAt": null,
   "version": 1,
-  "accent": "#790101",
-  "importedFrom": "https://shiroway.wordpress.com/2025/03/15/%e5%bd%bc%e5%b2%b8%e8%8a%b1-higanbana/",
-  "cover": "media/higanbana-28w-cover.png"
+  "importedFrom": "https://shiroway.wordpress.com/2025/03/15/%e5%bd%bc%e5%b2%b8%e8%8a%b1-higanbana/"
 }

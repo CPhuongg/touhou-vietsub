@@ -1,4 +1,5 @@
 {
+  "id": "hare-nochi-ame-295",
   "titleJP": "はれのちあめ",
   "titleRM": "Hare nochi Ame",
   "titleVI": "Nắng, Rồi Lại Mưa",
@@ -8,7 +9,7 @@
   "album": [
     "Egoistic Flame"
   ],
-  "release": "",
+  "release": "2019-08-16",
   "event": [
     "Comiket 96"
   ],
@@ -25,7 +26,11 @@
     "万年置き傘にご注意を"
   ],
   "source": [],
+  "cover": "media/hare-nochi-ame-295-cover.png",
+  "accent": "#790101",
   "youtube": "",
+  "audio": "",
+  "audioName": "",
   "lyrics": {
     "jp": "雲の切れ間に差し込んだ光\n淡い水色映し出した\n円を描いてまた歩き出そう\n君と一緒にあの空目指して\n\nふと思い出していた遠い昔話\nずっと側で見守ってた共に過ごした日々を\nもう一度だけでも触れてくれないかな?\nあの日ここに置き忘れた夢を探し続けてる\n\n降り出した雨たくさんの音色\n灰色の街響き渡る\n足取り軽く外へ飛び出しそう\n君と一緒にあの歌歌って\n\n線を引いた空と染み込んでく雫\nずっと側で見守ってた共に過ごした日々を\n冷たい風はきっとぬくもりを知るため\n今日も大切にしたいと僕は思っていたんだ\n\nふと思い出していた遠い昔話\nずっと側で見守ってた共に過ごした日々を\nもう一度だけでも触れてくれないかな?\nあの日ここに置き忘れた夢を探し続けてる",
     "rm": "",
@@ -34,12 +39,9 @@
   },
   "other": "",
   "comment": "",
-  "id": "hare-nochi-ame-295",
   "createdAt": "2025-03-23T16:47:41.000Z",
-  "updatedAt": "2025-08-14T14:53:13.000Z",
+  "updatedAt": "2026-11-11T06:50:15.232Z",
   "trashedAt": null,
   "version": 1,
-  "accent": "#790101",
-  "importedFrom": "https://shiroway.wordpress.com/2025/03/23/%e3%81%af%e3%82%8c%e3%81%ae%e3%81%a1%e3%81%82%e3%82%81-hare-nochi-ame/",
-  "cover": "media/hare-nochi-ame-295-cover.png"
+  "importedFrom": "https://shiroway.wordpress.com/2025/03/23/%e3%81%af%e3%82%8c%e3%81%ae%e3%81%a1%e3%81%82%e3%82%81-hare-nochi-ame/"
 }

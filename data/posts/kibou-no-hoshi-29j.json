@@ -1,4 +1,5 @@
 {
+  "id": "kibou-no-hoshi-29j",
   "titleJP": "希望の星",
   "titleRM": "Kibou no Hoshi",
   "titleVI": "Ngôi Sao Hy Vọng",
@@ -8,7 +9,7 @@
   "album": [
     "Egoistic Flame"
   ],
-  "release": "",
+  "release": "2019-08-16",
   "event": [
     "Comiket 96"
   ],
@@ -25,7 +26,11 @@
     "故郷の星が映る海"
   ],
   "source": [],
+  "cover": "media/kibou-no-hoshi-29j-cover.png",
+  "accent": "#790101",
   "youtube": "https://www.youtube.com/watch?v=gJlvw0sFyYk",
+  "audio": "",
+  "audioName": "",
   "lyrics": {
     "jp": "この星の行方は 転がる賽の目で決まる\nこの道の続きは 暗くて見えないけど\n\n欺いた時代を手に紡がれた 希望の丘\n騙しても手に入れたい 幸せがこの手に在るなら\n\n求めてた願いは 光を失うから\n\n欺いた時代を手に紡がれた 希望の丘\n騙しても手に入れたい 幸せがこの手に在るなら",
     "rm": "",
@@ -34,12 +39,9 @@
   },
   "other": "",
   "comment": "",
-  "id": "kibou-no-hoshi-29j",
   "createdAt": "2025-03-29T11:05:38.000Z",
-  "updatedAt": "2025-08-14T14:52:58.000Z",
+  "updatedAt": "2026-11-11T06:50:15.085Z",
   "trashedAt": null,
   "version": 1,
-  "accent": "#790101",
-  "importedFrom": "https://shiroway.wordpress.com/2025/03/29/%e5%b8%8c%e6%9c%9b%e3%81%ae%e6%98%9f-kibou-no-hoshi/",
-  "cover": "media/kibou-no-hoshi-29j-cover.png"
+  "importedFrom": "https://shiroway.wordpress.com/2025/03/29/%e5%b8%8c%e6%9c%9b%e3%81%ae%e6%98%9f-kibou-no-hoshi/"
 }
