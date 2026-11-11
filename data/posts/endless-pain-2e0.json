@@ -1,4 +1,5 @@
 {
+  "id": "endless-pain-2e0",
   "titleJP": "Endless Pain",
   "titleRM": "",
   "titleVI": "Nỗi đau vô tận",
@@ -8,7 +9,7 @@
   "album": [
     "Fairy Queen"
   ],
-  "release": "",
+  "release": "2010-12-30",
   "event": [
     "Comiket 79"
   ],
@@ -25,7 +26,11 @@
     "亡き王女の為のセプテット"
   ],
   "source": [],
+  "cover": "media/endless-pain-2e0-cover.jpg",
+  "accent": "#f9e997",
   "youtube": "https://www.youtube.com/watch?v=libCpwo8GIE",
+  "audio": "",
+  "audioName": "",
   "lyrics": {
     "jp": "届きそうな月を　見上げ幾年も\n終わらない　闇に生きるカラダに　紅い涙\n\n果てのない記憶は　色褪せる事無い\n冷たい雨に溺れ　流れて消えればいい\n\n狂おしい程　欲しいカラダ潤う瞳\n操ろうとも　遥か遠い ココロ邪魔をする\n\n祈り奏でる　星屑の中\n今宵踊ろう　許された瞬間。\n繋ぐ旋律　途切れない息\n揺れる香りに　酔いしれたい\n\nこの手に残った　赤く染まる花\n咲き乱れ舞う命よ　代わってはくれないか？\n\n同じ未来　歩き始めたい　苦しみのない\n世界へ導く　僅かな痛みで　寄り添っていて\n\n祈りうた歌う　幼き月に\n願う言霊　響く事はない\n懺悔の後に　映った景色\n嘲笑うように　月が昇る\n\n月が昇る",
     "rm": "todoki souna tsuki o 　 miage iku nen mo\nowaranai 　 yami ni ikiru karada ni 　 akai namida\n\nhate no nai kioku wa 　 iroaseru kotonai\ntsumetai ame ni obore 　 nagarete kiereba ii\n\nkuruoshii hodo 　 hoshii karada uruou hitomi\nayatsuroutomo 　 haruka toui kokoro jama o suru\n\ninori kanaderu 　 hoshikuzu no naka\nkoyoi odorou 　 yurusareta shunkan .\ntsunagu senritsu 　 togirenai iki\nyureru kaori ni 　 yoishiretai\n\nkono te ni nokotta 　 akaku somaru hana\nsakimidare mau inochiyo 　 kawatte hakurenai ka ？\n\nonaji mirai 　 arukihajimetai 　 kurushimi no nai\nsekai e michibiku 　 wazukana itami de 　 yorisotteite\n\ninori uta utau 　 osanaki tsuki ni\nnegau kotodama 　 hibiku koto hanai\nzange no nochi ni 　 utsutta keshiki\nazawarau you ni 　 tsuki ga noboru\n\ntsuki ga noboru",
@@ -34,12 +39,9 @@
   },
   "other": "",
   "comment": "",
-  "id": "endless-pain-2e0",
   "createdAt": "2026-03-24T14:49:10.000Z",
-  "updatedAt": "2026-03-29T15:34:32.000Z",
+  "updatedAt": "2026-11-11T06:31:15.148Z",
   "trashedAt": null,
   "version": 1,
-  "accent": "#f9e997",
-  "importedFrom": "https://shiroway.wordpress.com/2026/03/24/endless-pain/",
-  "cover": "media/endless-pain-2e0-cover.jpg"
+  "importedFrom": "https://shiroway.wordpress.com/2026/03/24/endless-pain/"
 }

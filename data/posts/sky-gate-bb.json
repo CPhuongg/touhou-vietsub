@@ -1,4 +1,5 @@
 {
+  "id": "sky-gate-bb",
   "titleJP": "Sky Gate",
   "titleRM": "",
   "titleVI": "Cổng trời",
@@ -27,7 +28,11 @@
   "source": [
     "東方花映塚"
   ],
+  "cover": "media/sky-gate-bb-cover.jpg",
+  "accent": "#66acda",
   "youtube": "https://www.youtube.com/watch?v=dhIdnPX1unA",
+  "audio": "",
+  "audioName": "",
   "lyrics": {
     "jp": "心に写した　思いをそっと伝えて\n隠された　扉を叩く\n\nまだ暗い空に　光を見つけ\n明けていく世界　未来に起こされ\n\n頬を抜けてくほら　春風に涙溶かして\n進んでく道を今　照らして\n\n駆け抜ける風　思いを伝えて\n忘れられた世界で\n過去　未来　真実　見つめているよ\n涙で濡れた　風を感じて\n笑顔のその嘘も\nすべて今抱きしめ伝えて\n\n広がる世界　悲しみ背負った　背中に\n映した　揺るぎない心\n\n遠く空をかけて　風を追って\n切り取られる今が　未来へと繋ぐ\n\n走りだした声　空を翔る風　追い越して\n地平線を横目に　広がる\n\n問いかけているよ　答えを求めて\n涙混じる嘘も\n今　信じる　思いだけを　あげるよ\nこの世界から　私が消えても\nもし許されるなら\n君の生きる未来を信じて\n\n通り雨に打たれ　ただ　立ちすくんで\n明日が恐くなったの　一人じゃ進めないよ\n一筋の光と　笑いかける空に\n進んでく今遠くへ　光の　先へ\n\n駆け抜ける風　思いを伝えて\n嘘まみれの世界で\n過去　未来　真実　見つめているよ\n涙で濡れた　風を感じて\n笑顔のその嘘も\nすべて今抱きしめ伝えて",
     "rm": "",
@@ -36,13 +41,10 @@
   },
   "other": "",
   "comment": "",
-  "id": "sky-gate-bb",
   "createdAt": "2024-11-29T14:35:53.000Z",
-  "updatedAt": "2024-12-26T16:09:19.000Z",
+  "updatedAt": "2026-11-11T06:33:21.563Z",
   "trashedAt": null,
   "version": 1,
-  "accent": "#66acda",
   "importedFrom": "https://shiroway.wordpress.com/2024/11/29/sky-gate/",
-  "cover": "media/sky-gate-bb-cover.jpg",
   "notionId": "3e66f0ef029080778a2edf1587f8a286"
 }

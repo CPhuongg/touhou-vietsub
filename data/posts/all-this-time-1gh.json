@@ -1,4 +1,5 @@
 {
+  "id": "all-this-time-1gh",
   "titleJP": "All This Time",
   "titleRM": "",
   "titleVI": "Từ trước tới nay",
@@ -8,7 +9,7 @@
   "album": [
     "Milky Wink"
   ],
-  "release": "",
+  "release": "2010-09-19",
   "event": [
     "Reitaisai SP"
   ],
@@ -25,7 +26,11 @@
     "ラストリモート"
   ],
   "source": [],
+  "cover": "media/all-this-time-1gh-cover.jpg",
+  "accent": "#66acda",
   "youtube": "https://www.youtube.com/watch?v=UO7EYRnHnWw",
+  "audio": "",
+  "audioName": "",
   "lyrics": {
     "jp": "記憶の奥　たどる\n行き場なく壊れいく心繋ぎ止め\nもう一度この場所で\n手をとって　永遠の果てへ　連れ出して\n\n駆け出し　時が走り出す\n未来を知るその術を　握り締め\n明日を　見つけたの\nでも不安でしょうがない心を隠せない\n\nかすれた声で　飛ばした　思いも\n届かない無情に消えてく　心をつかめない\n瞳に写した記憶　返して\nこの先の未来にきっとまた出会えると信じて\n\n深く眠る　地の底で\nゆっくり進む時の中夢に抱かれ\n時計の針を止め\nそっと耳元で目覚めを告げる\n\n記憶たどり進んでる\n動き出す夢物語に身を任せ\n永遠の続き壊したの\nもう幻想も夢も未来も僕らを救えない\n\n遠くへ消えた　未来を忘れ\n君がくれた思い出ぎゅっと　誰にも渡さない\n心の声を　空へ　届けて\n次に来る永遠はそっと汚れた手を拒んだ\n\n孤独に疲れて\n泣き叫んだ　つらい　思い　もう消えたいと願った\nこの気持ちをまだ許さないで\n手をとって駆け出す　闇を抜けて空へ\n\nかすれた声で　飛ばした　思いも\n届かない無情に消えてく　君の手つかめない\n瞳に写した記憶　返して\nこの先の未来にきっとまた永遠の果てへ",
     "rm": "",
@@ -34,12 +39,9 @@
   },
   "other": "",
   "comment": "",
-  "id": "all-this-time-1gh",
   "createdAt": "2025-01-05T15:45:02.000Z",
-  "updatedAt": "2025-01-05T15:57:19.000Z",
+  "updatedAt": "2026-11-11T06:33:21.841Z",
   "trashedAt": null,
   "version": 1,
-  "accent": "#66acda",
-  "importedFrom": "https://shiroway.wordpress.com/2025/01/05/all-this-time/",
-  "cover": "media/all-this-time-1gh-cover.jpg"
+  "importedFrom": "https://shiroway.wordpress.com/2025/01/05/all-this-time/"
 }

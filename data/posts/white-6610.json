@@ -1,12 +1,15 @@
 {
+  "id": "white-6610",
   "titleJP": "white",
   "titleRM": "",
   "titleVI": "trắng",
   "circle": [
     "FELT"
   ],
-  "album": [],
-  "release": "",
+  "album": [
+    "Cold Snap"
+  ],
+  "release": "2014-12-29",
   "event": [],
   "arrangement": [],
   "lyricist": [],
@@ -15,7 +18,11 @@
   ],
   "originalTitle": [],
   "source": [],
+  "cover": "",
+  "accent": "",
   "youtube": "https://youtu.be/ajen9lojfVI?si=_qgTzitYFiMMiLIj",
+  "audio": "",
+  "audioName": "",
   "lyrics": {
     "jp": "白い息が空へ消えていく はじまる夜を前に\n冷たい風がキラリと 揺らす星\nいつの日からだったんだろう 描いた夢の中で\n空（から）になった 心浮かぶ箱たち\n\n長い眠りを迎える前に\n瞬く星の海 走るの\n\n広がる銀の世界 薄れていく足跡\n降りつづいて 明日が少し 変わるよう\n厚い雲の切れ間に 輝く月の明かり\nかじかんでいた指先を 伸ばした\n僕が届くように\n\n季節めぐる度に生まれる 新しい僕がいる\n乾いた風が運んだ 遠い日々\n膨らんではしぼんでいった 悩みの種をひとつ\n覗き込むと それはただ愛しい\n\n寒い夜から目覚める瞬間（とき）に\n寄り添える温もり 残した\n\n潤う瞳が写した 忘れたい記憶を\n語りかけて 聞こえぬようにこっそりと\n見渡す限り広がる 星の海が溶かした\n次に出逢う頃にはもう 新しい\n君がそこにはいる\n\nすれ違った人影 いつかの冬 重ねた\nいつまでも いつまでも 見つめてた\n厚い雲の切れ間に 輝く月の明かり\nかじかんでいた指先を 伸ばした\n僕が届くように",
     "rm": "",
@@ -24,13 +31,8 @@
   },
   "other": "",
   "comment": "",
-  "id": "white-6610",
-  "cover": "",
-  "accent": "",
-  "audio": "",
-  "audioName": "",
   "createdAt": "2026-09-23T03:04:00.000Z",
-  "updatedAt": "2026-09-23T03:04:00.000Z",
+  "updatedAt": "2026-11-11T06:31:59.537Z",
   "trashedAt": null,
   "version": 1,
   "notionId": "3e46f0ef0290809882c9ea5d12796610"

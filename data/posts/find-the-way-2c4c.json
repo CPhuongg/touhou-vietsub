@@ -1,19 +1,26 @@
 {
+  "id": "find-the-way-2c4c",
   "titleJP": "Find the way",
   "titleRM": "",
   "titleVI": "Tìm lối đi",
   "circle": [
     "FELT"
   ],
-  "album": [],
-  "release": "",
+  "album": [
+    "Darkness Brightness"
+  ],
+  "release": "2018-08-10",
   "event": [],
   "arrangement": [],
   "lyricist": [],
   "vocals": [],
   "originalTitle": [],
   "source": [],
+  "cover": "",
+  "accent": "",
   "youtube": "",
+  "audio": "",
+  "audioName": "",
   "lyrics": {
     "jp": "(We can find the way...)\n(So now, Fly away...)\n\n深く滲んだ夜に 一人彷徨っていた\nあてもなくただ音を 確かめるように\n\nCan you feel the heartbeat?\nLead you to glory days\nSo, It's just waiting for you\nKeep on going,To the days\nDon't look back\nYou know You can go anywhere\n\n降り止んだ雨の向こう覗く太陽のように (Yeah, Hang in there...)\n\nBelieve in myself\nPursue the dream\nTo the world where I've never seen\nIt's just time to go\n\n(Find the way...)\nそう　Find the way 光が射す方へ\nどんな夜も超えて　先へ\n(Like the stars...)\nそう　Like the stars 暗闇も照らして\n空に響く声に続こう\n\nOne night, I lost track of my future\nAnd I was crying cause couldn't move\nI felt like the darkness was calling\nAnd I couldn't help stopping in the fog\n\n微かに洩れた希望(ひ)が君を呼んでいる\n耳を澄まして 足跡にまた 色をつけて歩むんだ\n\nThere is always light behind the clouds\nAnd don't forget we're not alone (Yeah, Step by step...)\n僕を待ってる日々を今　進もう　羽広げ\n\n(Fly away...)\nそう　Fly away 風を切り裂いて\nどんな日々も駆けて　永久に\n(Light the sky...)\nそう　Light the sky 戸惑いも掻き分け\n僕らを紡ぐ星を掴もう\n\n残響が徒に阻む 冷たく道を塞ぐんだ\nIt's just like my heart is leaving so far away\nか細く頼りなく揺らぐ　灯火はそっとそのまま\n消さずにまた一歩　刻もう\n\n(Find the way...)\nそう　Find the way 光が射す方へ\nどんな夜も超えて　先へ\nそう　Like the stars 暗闇も照らして\n空に響く声に続こう\n\n(Fly away...)\nそう　Fly away 風を切り裂いて\nどんな日々も駆けて　永久に\n(Light the sky...)\nそう　Light the sky 戸惑いも掻き分け\n僕らを紡ぐ星を掴もう",
     "rm": "",
@@ -22,13 +29,8 @@
   },
   "other": "",
   "comment": "",
-  "id": "find-the-way-2c4c",
-  "cover": "",
-  "accent": "",
-  "audio": "",
-  "audioName": "",
   "createdAt": "2026-09-27T14:05:00.000Z",
-  "updatedAt": "2026-09-27T14:05:00.000Z",
+  "updatedAt": "2026-11-11T06:32:56.206Z",
   "trashedAt": null,
   "version": 1,
   "notionId": "3e86f0ef029080269438f4949a7d2c4c"

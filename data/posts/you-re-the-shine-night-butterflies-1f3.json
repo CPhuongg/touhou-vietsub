@@ -1,4 +1,5 @@
 {
+  "id": "you-re-the-shine-night-butterflies-1f3",
   "titleJP": "You’re the Shine (Night Butterflies)",
   "titleRM": "",
   "titleVI": "Anh là nguồn sáng (Bướm đêm)",
@@ -8,7 +9,7 @@
   "album": [
     "Milky Wink"
   ],
-  "release": "",
+  "release": "2010-09-19",
   "event": [
     "Reitaisai SP"
   ],
@@ -25,7 +26,11 @@
     "感情の摩天楼 ～ Cosmic Mind"
   ],
   "source": [],
+  "cover": "media/you-re-the-shine-night-butterflies-1f3-cover.jpg",
+  "accent": "#66acda",
   "youtube": "https://www.youtube.com/watch?v=_E2FYQpkc6k",
+  "audio": "",
+  "audioName": "",
   "lyrics": {
     "jp": "",
     "rm": "",
@@ -34,12 +39,9 @@
   },
   "other": "- **Chorus**: Vivienne, W.nova",
   "comment": "",
-  "id": "you-re-the-shine-night-butterflies-1f3",
   "createdAt": "2024-12-29T15:30:53.000Z",
-  "updatedAt": "2025-01-05T15:46:01.000Z",
+  "updatedAt": "2026-11-11T06:33:21.950Z",
   "trashedAt": null,
   "version": 1,
-  "accent": "#66acda",
-  "importedFrom": "https://shiroway.wordpress.com/2024/12/29/youre-the-shine-night-butterflies/",
-  "cover": "media/you-re-the-shine-night-butterflies-1f3-cover.jpg"
+  "importedFrom": "https://shiroway.wordpress.com/2024/12/29/youre-the-shine-night-butterflies/"
 }

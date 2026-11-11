@@ -1,4 +1,5 @@
 {
+  "id": "little-nova-2f7",
   "titleJP": "Little Nova",
   "titleRM": "",
   "titleVI": "Tân tinh bé nhỏ",
@@ -8,7 +9,7 @@
   "album": [
     "Little Planet"
   ],
-  "release": "",
+  "release": "2012-08-11",
   "event": [
     "Comiket 82"
   ],
@@ -25,7 +26,11 @@
     "妖々夢 ～ Snow or Cherry Petal"
   ],
   "source": [],
+  "cover": "media/little-nova-2f7-cover.png",
+  "accent": "#a71e24",
   "youtube": "https://www.youtube.com/watch?v=AdGxvy7SYyw",
+  "audio": "",
+  "audioName": "",
   "lyrics": {
     "jp": "何気なく過ぎ去ってゆく毎日 早すぎる時の流れ 今ひとり\n「昔はよかった」なんて時々 思い返してみたりしても\n\n今を生きてる私 この手で何が\n出来るかわからないけど 明日を信じ立ち止まらず\n未来は自分で 変えてゆけるよ\n\nたとえ　美しく咲く花びらのように\nたくさんの光浴びて輝き\n強い風や雨にうたれても負けない\n強い心胸に抱きながら 歩いてく\n\n人は皆出逢いと別れ繰り返し 迷い 傷つき 遠回りしてでも\n自分だけの‘居場所’を求める 揺れ動く心を抑えて\n\nこの瞳に映る 広い世界で何が…\nいつの間にか忘れた 「信じるコト」\n失う事恐れず この手で未来を開こう\n\n大空を舞い 羽ばたく蝶達のように\n大きな羽を広げ 飛び立とう\n今だから出来る 特別なコトはいらない\nただ感じるままに 選んだ道つき進む\n\nたとえ　美しく咲く花びらのように\nたくさんの光浴びて輝き\n強い風や雨にうたれても負けない\n強い心胸に抱きながら\n\n大空を舞い 羽ばたく蝶達のように\n大きな羽を広げ 飛び立とう\n今だから出来る 特別なコトはいらない\nただ感じるままに 選んだ道つき進む",
     "rm": "nanigenaku sugisatte yuku mainichi hayasugiru toki no nagare ima hitori\n“mukashi wa yokatta” nante tokidoki omoikaeshite mitari shite mo\n\nima wo ikiteru watashi kono te de nani ga\ndekiru ka wakaranai kedo asu wo shinji tachitomarazu\nmirai wa jibun de kaete yukeru yo\n\ntatoe utsukushiku saku hanabira no youni\ntakusan no hikari abite kagayaki\ntsuyoi kaze ya ame ni utarete mo makenai\ntsuyoi kokoro mune ni idaki nagara aruiteku\n\nhito wa mina deai to wakare kurikaeshi mayoi kizutsuki toomawarishite demo\njibun dake no ‘ibasho’ wo motomeru yureugoku kokoro wo osaete\n\nkono me ni utsuru hiroi sekai de nani ga…\nitsunomani ka wasureta “shinjiru koto”\nushinau koto osorezu kono te de mirai wo hirakou\n\noozora wo mai habataku choutachi no youni\nookina hane wo hiroge tobitatou\nima dakara dekiru tokubetsuna koto wa iranai\ntada kanjiru mama ni eranda michitsuki susumu\n\ntatoe utsukushiku saku hanabira no youni\ntakusan no hikari abite kagayaki\ntsuyoi kaze ya ame ni utarete mo makenai\ntsuyoi kokoro mune ni idaki nagara\n\noozora wo mai habataku choutachi no youni\nookina hane wo hiroge tobitatou\nima dakara dekiru tokubetsuna koto wa iranai\ntada kanjiru mama ni eranda michitsuki susumu",
@@ -34,12 +39,9 @@
   },
   "other": "",
   "comment": "",
-  "id": "little-nova-2f7",
   "createdAt": "2026-04-05T11:17:31.000Z",
-  "updatedAt": "2026-04-06T02:05:41.000Z",
+  "updatedAt": "2026-11-11T06:32:28.227Z",
   "trashedAt": null,
   "version": 1,
-  "accent": "#a71e24",
-  "importedFrom": "https://shiroway.wordpress.com/2026/04/05/little-nova/",
-  "cover": "media/little-nova-2f7-cover.png"
+  "importedFrom": "https://shiroway.wordpress.com/2026/04/05/little-nova/"
 }

@@ -1,4 +1,5 @@
 {
+  "id": "brilliant-world-2d0",
   "titleJP": "Brilliant World",
   "titleRM": "",
   "titleVI": "Thế giới rực rỡ",
@@ -8,7 +9,7 @@
   "album": [
     "Fairy Queen"
   ],
-  "release": "",
+  "release": "2010-12-30",
   "event": [
     "Comiket 79"
   ],
@@ -25,7 +26,11 @@
     "上海紅茶館 ～ Chinese Tea"
   ],
   "source": [],
+  "cover": "media/brilliant-world-2d0-cover.jpg",
+  "accent": "#f9e997",
   "youtube": "https://www.youtube.com/watch?v=rUizV_rwSgQ",
+  "audio": "",
+  "audioName": "",
   "lyrics": {
     "jp": "",
     "rm": "",
@@ -34,12 +39,9 @@
   },
   "other": "- **Chorus**: Vivienne+W.nova",
   "comment": "",
-  "id": "brilliant-world-2d0",
   "createdAt": "2025-08-30T07:12:37.000Z",
-  "updatedAt": "2025-08-30T07:12:37.000Z",
+  "updatedAt": "2026-11-11T06:31:15.641Z",
   "trashedAt": null,
   "version": 1,
-  "accent": "#f9e997",
-  "importedFrom": "https://shiroway.wordpress.com/2025/08/30/brilliant-world/",
-  "cover": "media/brilliant-world-2d0-cover.jpg"
+  "importedFrom": "https://shiroway.wordpress.com/2025/08/30/brilliant-world/"
 }
