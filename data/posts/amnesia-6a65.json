@@ -1,4 +1,5 @@
 {
+  "id": "amnesia-6a65",
   "titleJP": "AMNESIA",
   "titleRM": "",
   "titleVI": "LÃNG QUÊN",
@@ -13,7 +14,11 @@
   "vocals": [],
   "originalTitle": [],
   "source": [],
+  "cover": "",
+  "accent": "#6e56cf",
   "youtube": "https://youtu.be/09ob-jt5Ez0?si=hQAoAOL2vHqWGcTW",
+  "audio": "",
+  "audioName": "",
   "lyrics": {
     "jp": "The dark night comes in my mind\nThe dawn is far and never comes\n\nIn Wonderland, amnesia\nI don't know why I'm here now\nSearching for my truth all the time\n\nああ　それはけして　咲くことのない花\n遥かな時の迷路を彷徨う花\n哀しなを引き連れて　虚しさを携えて\n何かを隠し続ける妖櫻\n\nI've just found its tear\nFairy-Cherry, what does it needs\nイニシエ　ノ　ザワメキ\nHow must I feel? Missing the meaning\nネガイ　ノ　タネ\nPlease, give me some heal like fantasy\nイロアセタ　オモカゲ　ウカベ\nI know the destiny\n\nThe dark night stays in my mind\nThe dawn is fake with silly fate\n\nIn cruel world, agnosia\nI don't know when I can smile\nSearching for my truth forever\n\nああ　そはれはかって　咲く誇っていた花\n孤独な闇のお伽草子　語る櫻\n\nI've just found its tear\nFairy-Cherry, what does it needs\nイニシエ　ノ　ザワメキ\nHow must I feel? Missing the meaning\nネガイ　ノ　タネ\nPlease, give me some heal like fantasy\nイロアセタ　オモカゲ　ウカベ\nI know the destiny\n\nアア　ヤミヨ　ノ　ハナビラ\nアア　アヤシ　ノ　ザクラ　ヨ\n\nI've just found its tear\nFairy-Cherry, what does it needs\nイニシエ　ノ　ザワメキ\nHow must I feel? Missing the meaning\nネガイ　ノ　タネ\nPlease, give me some heal like fantasy\nイロアセタ　オモカゲ　ウカベ\nI know the destiny\n\nBlooming my love\nFairy-Cherry",
     "rm": "",
@@ -22,13 +27,8 @@
   },
   "other": "",
   "comment": "",
-  "id": "amnesia-6a65",
-  "cover": "",
-  "accent": "",
-  "audio": "",
-  "audioName": "",
   "createdAt": "2026-09-23T05:06:00.000Z",
-  "updatedAt": "2026-09-23T05:06:00.000Z",
+  "updatedAt": "2026-11-11T15:43:37.523Z",
   "trashedAt": null,
   "version": 1,
   "notionId": "3e46f0ef0290802ba752d9769a546a65"

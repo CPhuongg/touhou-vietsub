@@ -1,4 +1,5 @@
 {
+  "id": "our-ship-1d24",
   "titleJP": "OUR SHIP",
   "titleRM": "",
   "titleVI": "CON TÀU CỦA CHÚNG TA",
@@ -27,7 +28,11 @@
   "source": [
     "東方夢時空"
   ],
+  "cover": "media/our-ship-1d24-cover.webp",
+  "accent": "#e5484d",
   "youtube": "https://www.youtube.com/watch?v=b-rZyUDU0nc",
+  "audio": "",
+  "audioName": "",
   "lyrics": {
     "jp": "澄んだ空　溜め込んだため息を\n吸い込んで　のみ込んでいく\n重なった息の色が　作った青の色\n\n真夜中に浮かんだ雲に何故か\n溢れ出す　小さな泪\n柔らかな光を君の胸の奥へ灯そう\n\n美しくて　儚くて　少しだけ遠く感じる\nまばゆいほどの星の海を　泳いでみたい\n\n時を超えて　光の中\n大きな船に揺られながら\n残った　ため息を拾い集めにいくよ\n『空を見上げていて』\nはぐれたまま　失くしかけた\n君の煌めく思い出もきっと\nこの手で届けよう\n願いが一つ叶うように\n\n手探りの　明日に戸惑う瞳\n色づいた　花を飾ろう\n目に映るものが全て　眩しいくらいに\n\nこの声が君に寄り添える日は\nこっそりと　話をしよう\n新しい甘い香り見つけながら　このまま\n\n夢のような　時が過ぎて　胸がふいに痛む夜も\n目を閉じてみて　何度だって　また会えるから\n\n星を覆う　雲に紛れ\n大きな船が僕等をつなぐ\n浮かんだ不器用な言葉を並べるより\n『耳を澄ましてみて』\n冷たい風　白い息が\n空へとのぼって僕のもとへ\n繰り返す　時の中\nこの声がまた　君を包む\n\n時を超えて　光の中\n大きな船に揺られながら\n残った　ため息を拾い集めにいくよ\n『空を見上げていて』\nはぐれたまま　失くしかけた\n君の煌めく思い出もきっと\nこの手で届けよう　願いが叶うように\n繰り返す時の中　この声でまた　君を包む",
     "rm": "",
@@ -36,13 +41,8 @@
   },
   "other": "[https://www.youtube.com/watch?v=8SIBy0ISARs&list=PLCpeysDj_eWdg1uhHiqAVL9H5NzsnzaML&index=8](https://www.youtube.com/watch?v=8SIBy0ISARs&list=PLCpeysDj_eWdg1uhHiqAVL9H5NzsnzaML&index=8)",
   "comment": "",
-  "id": "our-ship-1d24",
-  "cover": "",
-  "accent": "",
-  "audio": "",
-  "audioName": "",
   "createdAt": "2026-09-22T15:25:00.000Z",
-  "updatedAt": "2026-09-22T15:25:00.000Z",
+  "updatedAt": "2026-11-13T16:28:19.063Z",
   "trashedAt": null,
   "version": 1,
   "notionId": "3e36f0ef029080649518c0cfb34a1d24"

@@ -1,4 +1,5 @@
 {
+  "id": "crescent-moon-a213",
   "titleJP": "crescent moon",
   "titleRM": "",
   "titleVI": "trăng khuyết",
@@ -25,7 +26,11 @@
   "source": [
     "東方心綺楼"
   ],
+  "cover": "media/crescent-moon-a213-cover.webp",
+  "accent": "#e6b9c7",
   "youtube": "https://youtu.be/tExJiGlUPq0?si=oNHITTPVKcTAP3FU",
+  "audio": "",
+  "audioName": "",
   "lyrics": {
     "jp": "乾いた胸に今　小さな雨の粒が\nポツリ落ちて身体中に　染み渡っていく\n\n数えきれなくなった　仮面を隠すように\n何度もまた新しい　僕をつくる\n\nI want to find my true self\n探したくなる\n音も立てずに風が連れさった\n記憶ごと 声の色も\n芽生えかけた小さな芽に\n気づかないうちに\n\n流れた  幾つもの日々の中に\n埋もれていた色の無い\n僕のナミダ\n動く 鼓動に戸惑いながら\n本当のこころにまた\n鍵をかけていく\n溜息残して\n\n花から零れていく　滴を眺めていた\n「君だけが僕の全てを　知っているのかな 」\n\nどんな空の下も　そばに置いていたくて…\nそんな何かを求めて　歩いてきた\n\nFlowers always bloom in my heart\n触れてみたいよ\n揺れる花びら  ただ美しくて\n消えないように祈った\n君を失くす時の僕は\n泣いてるのかな\n\n霞んだ　三日月が煌めいている\n塞いだ扉を叩くように　光った\n響く  夜空の大きな息が\n閉ざしていた　こころ包み\n優しく囁く\nこの手を握って\n\n流れた  幾つもの日々の中に\n埋もれていた色の無い\n僕のナミダ\n動く　鼓動に戸惑いながら\n本当のこころにまた\n鍵をかけていく\n\n霞んだ　三日月が煌めいている\n塞いだ扉を叩くように　光った\n響く  夜空の大きな息が\nこの手を引いてこころの\n鍵を開ける  静かに",
     "rm": "",
@@ -34,13 +39,8 @@
   },
   "other": "",
   "comment": "",
-  "id": "crescent-moon-a213",
-  "cover": "",
-  "accent": "",
-  "audio": "",
-  "audioName": "",
   "createdAt": "2026-09-23T02:52:00.000Z",
-  "updatedAt": "2026-09-23T02:52:00.000Z",
+  "updatedAt": "2026-11-11T15:53:18.606Z",
   "trashedAt": null,
   "version": 1,
   "notionId": "3e46f0ef02908094989df18383c3a213"

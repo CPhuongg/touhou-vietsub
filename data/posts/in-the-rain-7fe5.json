@@ -1,4 +1,5 @@
 {
+  "id": "in-the-rain-7fe5",
   "titleJP": "IN THE RAIN",
   "titleRM": "",
   "titleVI": "TRONG CƠN MƯA",
@@ -27,7 +28,11 @@
   "source": [
     "東方花映塚"
   ],
+  "cover": "media/in-the-rain-7fe5-cover.webp",
+  "accent": "#025876",
   "youtube": "https://www.youtube.com/watch?v=RzdEutmXrE0&list=PLCpeysDj_eWcJ1Z9o5ckRhy_M9i50bEQp&index=2",
+  "audio": "",
+  "audioName": "",
   "lyrics": {
     "jp": "掠れた声が　木の葉に乗る\n迷いながらも探し物求めて\n霧に溺れた小さな手は\n夜の中へ　かじかんだまま\n\n心の片隅を　ふとすり抜けた\n幻を　掴んで届けるよ\n\n零れていく想いに　濡れながら朝を待つ\n真っ白なその頬に　寄り添う光を\n\n喉につかえた　言葉の輪が\n哀しみの痕 引きずって離さない\n僕の全てを　捧げるから\n深い泪 拭えるように\n\n優しい瞳が　寂しく笑う\n冷たくて　孤独な花のよう\n\n虹を呼ぶ雨なら　躊躇わず連れていくよ\n雨音に隠すから　その声聞かせて\n流れていく景色に　晴れていく君の空を\n眺めていたい　ただ側で\n静かな夜明けを\n\n零れていく想いに　濡れながら朝を待つ\n真っ白なその頬に　寄り添う光を\n雨雲が消えたら　七色に包まれていく\n木漏れ日の中浮かび出す\n小さな君の手",
     "rm": "",
@@ -36,13 +41,8 @@
   },
   "other": "[https://www.youtube.com/watch?v=TuIW41OOFPs](https://www.youtube.com/watch?v=TuIW41OOFPs)",
   "comment": "",
-  "id": "in-the-rain-7fe5",
-  "cover": "",
-  "accent": "",
-  "audio": "",
-  "audioName": "",
   "createdAt": "2026-09-22T15:39:00.000Z",
-  "updatedAt": "2026-09-22T15:39:00.000Z",
+  "updatedAt": "2026-11-13T16:28:47.343Z",
   "trashedAt": null,
   "version": 1,
   "notionId": "3e36f0ef0290805abbc3df0554d07fe5"

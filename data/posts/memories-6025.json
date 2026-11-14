@@ -1,4 +1,5 @@
 {
+  "id": "memories-6025",
   "titleJP": "Memories",
   "titleRM": "",
   "titleVI": "Kí Ức",
@@ -27,7 +28,11 @@
   "source": [
     "東方神霊廟"
   ],
+  "cover": "media/memories-6025-cover.webp",
+  "accent": "#d8cac5",
   "youtube": "https://www.youtube.com/watch?v=vWxPy_eZxf0",
+  "audio": "",
+  "audioName": "",
   "lyrics": {
     "jp": "Bring back the memories...\n\n周りが見えないほどに　駆け抜けてきた日々\n残った心　見つめた\n集め続けてた飾り　手放した　あの時\n確かに　空は変わった\n\n湿った気持ちに　乾いた風が\nぐるぐる回りすり抜けた\n\n追いかけては悪戯に形を変えていく\n届きそうな最後の夢  浮かぶ\n大げさに語った夜と遠すぎた未来が\nゆっくりと　近づく\n\n欲しいものをただ一つ　また一つ掴んで\n埋もれた記憶辿った\nしわくちゃの手紙 伸ばし　読み上げていくように\n懐かしい想い溢れた\n\n忘れた気でいた　小さな欠片\nキラキラ巡り　また逢えた\n\n迷いのない不思議な今全て出し切ろう\n雨の中でも輝ける　きっと\n宙に浮かぶままの夢を　見失わないように\n真っ直ぐな　心で\n\n青く輝く世界...\n\n絞り出す声を　忘れないで\n雨上がり　空へ叫ぼう\n要らない気持ち　吐き出したなら\n生まれ変わる瞳に　出逢える\n\n追いかけては悪戯に形を変えていく\n届きそうな最後の夢　浮かぶ\n大げさに語った夜と　遠すぎた未来が\nゆっくりと\n\n迷いのない不思議な今全て出し切ろう\n雨の中でも輝ける　きっと\n宙に浮かぶままの夢を　見失わないように\n真っ直ぐな　心で",
     "rm": "",
@@ -36,13 +41,8 @@
   },
   "other": "[https://www.youtube.com/watch?v=OekhsEvwknQ](https://www.youtube.com/watch?v=OekhsEvwknQ)",
   "comment": "",
-  "id": "memories-6025",
-  "cover": "",
-  "accent": "",
-  "audio": "",
-  "audioName": "",
   "createdAt": "2026-09-22T14:51:00.000Z",
-  "updatedAt": "2026-09-22T14:51:00.000Z",
+  "updatedAt": "2026-11-13T16:27:44.293Z",
   "trashedAt": null,
   "version": 1,
   "notionId": "3e36f0ef0290801e8d30f7c221fa6025"

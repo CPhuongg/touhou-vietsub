@@ -1,4 +1,5 @@
 {
+  "id": "muenbuyou-shunkan-263",
   "titleJP": "無炎舞踊≠循環",
   "titleRM": "Muenbuyou ≠ Shunkan",
   "titleVI": "Vô viêm vũ dũng ≠ tuần hoàn",
@@ -25,7 +26,11 @@
     "霊知の太陽信仰　～ Nuclear Fusion"
   ],
   "source": [],
+  "cover": "media/muenbuyou-shunkan-263-cover.jpg",
+  "accent": "#30a46c",
   "youtube": "https://www.youtube.com/watch?v=ZnK7QYWq9TY",
+  "audio": "",
+  "audioName": "",
   "lyrics": {
     "jp": "暗い茅の沼　沈む暁に\n浮かぶ鍵穴に　硝子を突き立て\n\n滲む朱の渦　落ちる空の咎\n朽ちる花に観た　異界の音階\n\n狂う陰陽に　踊る斑目が\n招く宴楽の　歪んだ境界\n\n唱える言霊　流れる紋様\n刻む針の音に　鵺鳥啼く空\n\n掠れた声で響く　「ナニカガミエタカナ」\n\n抗えば存在は孤高なる塔へ\n「何故？」　と問いかけて閉幕暗転\n潜む奈落へと身を投げるロミオ\n影に侵されて辿りつく地はユートピア\n\n揺れる空間に　しがみつく鳥の\n悲鳴にもとれる　可憐な歌声\n\n壊れ行く音が　放つ芳醇\n甘く果てがなく　高貴な妖艶\n\n掠れた声で叫ぶ　「ナニカガミエタカナ」\n\n仮初に飾られて踊りだす輪舞曲\n高く積み上げた傲慢システム\n替わる演題に戸惑うジュリエット\n罪に解かされて開く扉はユートピア\n\n『繰り返される隷属は壮大な冤罪』\n愚鈍なる民衆は挙って声を上げる\nアカシャに刻まれた絶対原則に気づく者は無く\n私利私欲に惑わされ、与えられた使命を全うすること無く\n未来と言う名の偶像\n希望と言う名の欲望\n自己犠牲を恐れ、故に自らを矛盾と混沌に貶しめる\n\n理性を得た人間が本当に繁栄を得られたのだろうか？\n繰り返される歴史に幾度となく与えられた『認識』\n集合体としての人がいかに愚かで傲慢で身勝手であったか…\nそれでも人間は過ちを振り返ることもなく、\n収束への道のりをただ早めている。\n果たして『未来』は『希望』に満ちているのだろうか？\n\n抗えば存在は孤高なる塔へ\n「何故？」　と問いかけて閉幕暗転\n潜む奈落へと身を投げるロミオ\n影に侵されて辿りつく地はユートピア\n\n仮初に飾られて踊りだす輪舞曲\n高く積み上げた傲慢システム\n替わる演題に戸惑うジュリエット\n罪に解とされて開く扉はユートピア",
     "rm": "",
@@ -34,12 +39,9 @@
   },
   "other": "",
   "comment": "",
-  "id": "muenbuyou-shunkan-263",
   "createdAt": "2025-02-13T03:49:31.000Z",
-  "updatedAt": "2025-02-14T04:03:07.000Z",
+  "updatedAt": "2026-11-14T13:41:55.049Z",
   "trashedAt": null,
   "version": 1,
-  "accent": "#eae7b7",
-  "importedFrom": "https://shiroway.wordpress.com/2025/02/13/muenbuyou-shunkan/",
-  "cover": "media/muenbuyou-shunkan-263-cover.jpg"
+  "importedFrom": "https://shiroway.wordpress.com/2025/02/13/muenbuyou-shunkan/"
 }

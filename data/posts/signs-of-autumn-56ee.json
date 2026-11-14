@@ -1,4 +1,5 @@
 {
+  "id": "signs-of-autumn-56ee",
   "titleJP": "Signs of Autumn",
   "titleRM": "",
   "titleVI": "Dấu Hiệu Mùa Thu",
@@ -21,7 +22,11 @@
   "source": [
     "東方風神録"
   ],
+  "cover": "",
+  "accent": "#30a46c",
   "youtube": "https://youtu.be/rI7lpXsmiMw?si=uqEWL8CdGSYwXAWA",
+  "audio": "",
+  "audioName": "",
   "lyrics": {
     "jp": "金木犀の香りが 夏の終わりを告げる\n移ろい過ぎゆく季節に 君を想う\n\n本当の恋を知らずにいたから・・・\n終わってはじめて知った この胸の痛み\n\n黄香 時の切なさよ 風に乗せて彷徨う\nあの日の欠片 永遠に 金色に輝く\n\n幾千の夜(やみ)を駆け抜け 君の姿(かげ)追いかけて\n浮かんで消える泡のような 儚い物語\n\n紅く染まる街路樹が 二人を包み込んだ\n雨上がりの秋の空 思い出すよ\n\n本当の恋と わかっていたなら・・・\nもう戻らない時間が 深く胸を打つ\n\n黄昏 揺らめく幻想 秋の風に漂う\n微かに香る 君の華 密やかに夢現\n\n幾度の闇夜を飛び越え 君の姿探して\n咲いては散る花のような 儚い物語",
     "rm": "",
@@ -30,13 +35,8 @@
   },
   "other": "",
   "comment": "",
-  "id": "signs-of-autumn-56ee",
-  "cover": "",
-  "accent": "",
-  "audio": "",
-  "audioName": "",
   "createdAt": "2026-09-23T13:36:00.000Z",
-  "updatedAt": "2026-09-23T13:36:00.000Z",
+  "updatedAt": "2026-11-11T15:43:27.239Z",
   "trashedAt": null,
   "version": 1,
   "notionId": "3e46f0ef029080189400f65d5a6156ee"
