@@ -20,7 +20,9 @@
       "Yonder Voice": "purple",
       "Eurobeat Union": "brown",
       "凋叶棕": "default",
-      "ちょこふぁん": "brown"
+      "ちょこふぁん": "brown",
+      "EdelSound": "red",
+      "RegaSound": "brown"
     },
     "album": {
       "Bloody Hellfire": "pink",
@@ -64,7 +66,8 @@
       "偶像ハルマゲドン": "purple",
       "Dione Aggregation": "red",
       "Cold Snap": "brown",
-      "Darkness Brightness": "default"
+      "Darkness Brightness": "default",
+      "Perpetual Devotion": "pink"
     },
     "arrangement": {
       "黒鳥": "orange",
